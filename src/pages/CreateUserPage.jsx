@@ -1,5 +1,5 @@
 const CreateUserPage = () => {
-  return <div></div>
+  return <div>Create</div>
 }
 
 export default CreateUserPage

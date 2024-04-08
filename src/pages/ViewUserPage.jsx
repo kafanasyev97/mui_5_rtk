@@ -1,5 +1,5 @@
 const ViewUserPage = () => {
-  return <div></div>
+  return <div>View</div>
 }
 
 export default ViewUserPage

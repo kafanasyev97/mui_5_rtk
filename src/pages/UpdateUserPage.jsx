@@ -1,5 +1,5 @@
 const UpdateUserPage = () => {
-  return <div></div>
+  return <div>Update</div>
 }
 
 export default UpdateUserPage
