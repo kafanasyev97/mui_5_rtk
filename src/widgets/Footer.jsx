@@ -5,7 +5,7 @@ const Footer = () => {
         <div className="footer__container">
           <p>© My Company 2024</p>
           <p>
-            Работает на{' '}
+            Работает на
             <a className="footer__link" href="#">
               Yii Framework
             </a>

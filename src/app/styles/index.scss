@@ -75,7 +75,7 @@ p {
 .footer {
   background-color: #f5f5f5;
   font-size: 0.9em;
-  height: 60px;
+  padding: 22px 0;
 
   &__container {
     padding: 0 15px;
@@ -86,9 +86,5 @@ p {
 
   &__link {
     color: #007bff;
-  }
-
-  p {
-    margin-bottom: 1rem;
   }
 }
