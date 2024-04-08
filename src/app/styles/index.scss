@@ -30,7 +30,6 @@ p {
   display: block;
 }
 .header {
-  margin-bottom: 200px;
   background-color: #343a40;
   position: fixed;
   z-index: 10;
@@ -43,6 +42,10 @@ p {
 .container {
   max-width: 1140px;
   margin: 0 auto;
+}
+
+.header__line {
+  margin-bottom: 50px;
 }
 
 .header__container {

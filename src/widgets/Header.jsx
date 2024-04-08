@@ -24,6 +24,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
+      <div className="header__line"></div>
     </div>
   )
 }
