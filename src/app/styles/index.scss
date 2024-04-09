@@ -88,3 +88,30 @@ p {
     color: #007bff;
   }
 }
+
+.table {
+  margin-top: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+}
+.table th {
+  font-weight: bold;
+  padding: 12px;
+  border: 1px solid #dddddd;
+}
+.table td {
+  border: 1px solid #dddddd;
+  padding: 12px;
+  height: 205px;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.user-img {
+  width: 150px;
+  height: 150px;
+}
