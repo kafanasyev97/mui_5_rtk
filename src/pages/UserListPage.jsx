@@ -6,6 +6,19 @@ const UserListPage = () => {
 
   return (
     <div className="container">
+      <nav className="nav-block">
+        <ol className="nav-ol">
+          <li>
+            <a href="#">Главная</a>
+          </li>
+          <li className="lol">
+            <a href="#">Пользователи</a>
+          </li>
+        </ol>
+      </nav>
+      <p>
+        <a href="#">Добавить пользователя</a>
+      </p>
       <table className="table">
         <thead>
           <tr>

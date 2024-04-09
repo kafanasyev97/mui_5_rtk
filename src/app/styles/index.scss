@@ -16,7 +16,7 @@ ul {
 
 a {
   text-decoration: none;
-  color: #fff;
+  color: #000;
 }
 
 p {
@@ -55,6 +55,7 @@ p {
 }
 
 .header__link {
+  color: #fff;
   font-size: 1.25rem;
   padding-top: 0.3125rem;
   padding-bottom: 0.3125rem;
@@ -114,4 +115,34 @@ p {
 .user-img {
   width: 150px;
   height: 150px;
+}
+
+.nav-block {
+  // display: flex;
+  // background-color: #e9ecef;
+  // border-radius: 0.25rem;
+  // list-style: none;
+  // list-style-type: none;
+  // padding: 0.75rem 1rem;
+}
+
+.nav-ol {
+  display: flex;
+  gap: 13px;
+  background-color: #e9ecef;
+  border-radius: 0.25rem;
+  list-style: none;
+  list-style-type: none;
+  padding: 0.75rem 1rem;
+
+  a {
+    color: black;
+  }
+}
+
+.lol::before {
+  float: left;
+  padding-right: 0.5rem;
+  color: #6c757d;
+  content: '/';
 }
