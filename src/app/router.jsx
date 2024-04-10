@@ -12,22 +12,22 @@ export const router = createBrowserRouter([
     children: [
       {
         path: '/',
-        element: <Navigate to="/index" />,
+        element: <Navigate to="/user/index" />,
       },
       {
-        path: '/index',
+        path: '/user/index',
         element: <UserListPage />,
       },
       {
-        path: '/create',
+        path: '/user/create',
         element: <CreateUserPage />,
       },
       {
-        path: '/view/:id',
+        path: '/user/view/:id',
         element: <ViewUserPage />,
       },
       {
-        path: '/update/:id',
+        path: '/user/update/:id',
         element: <UpdateUserPage />,
       },
     ],

@@ -1,5 +1,6 @@
 import { useGetUserListQuery } from '../app/redux'
 import png from '../shared/images/user-placeholder.png'
+import { Link } from 'react-router-dom'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
@@ -17,7 +18,7 @@ const UserListPage = () => {
         </ol>
       </nav>
       <p>
-        <a href="#">Добавить пользователя</a>
+        <Link to="/user/create">Добавить пользователя</Link>
       </p>
       <table className="table">
         <thead>
@@ -64,7 +65,7 @@ const UserListPage = () => {
                 <td>{user.birthdate}</td>
                 <td>{[...user.favorite_food_ids]}</td>
                 <td>
-                  <a href="#">
+                  <Link to="/user/view/93">
                     <svg
                       aria-hidden="true"
                       style={{
@@ -83,8 +84,8 @@ const UserListPage = () => {
                         d="M573 241C518 136 411 64 288 64S58 136 3 241a32 32 0 000 30c55 105 162 177 285 177s230-72 285-177a32 32 0 000-30zM288 400a144 144 0 11144-144 144 144 0 01-144 144zm0-240a95 95 0 00-25 4 48 48 0 01-67 67 96 96 0 1092-71z"
                       ></path>
                     </svg>
-                  </a>
-                  <a href="#">
+                  </Link>
+                  <Link to="/user/update/93">
                     <svg
                       aria-hidden="true"
                       style={{
@@ -103,7 +104,7 @@ const UserListPage = () => {
                         d="M498 142l-46 46c-5 5-13 5-17 0L324 77c-5-5-5-12 0-17l46-46c19-19 49-19 68 0l60 60c19 19 19 49 0 68zm-214-42L22 362 0 484c-3 16 12 30 28 28l122-22 262-262c5-5 5-13 0-17L301 100c-4-5-12-5-17 0zM124 340c-5-6-5-14 0-20l154-154c6-5 14-5 20 0s5 14 0 20L144 340c-6 5-14 5-20 0zm-36 84h48v36l-64 12-32-31 12-65h36v48z"
                       ></path>
                     </svg>
-                  </a>
+                  </Link>
                   <a href="#">
                     <svg
                       aria-hidden="true"
