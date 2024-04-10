@@ -1,4 +1,6 @@
 import { useCreateUserMutation } from '../app/redux'
+import ButtonSave from '../shared/ButtonSave'
+import SelectInput from '../shared/SelectInput'
 import UserInput from '../shared/UserInput'
 import png from '../shared/images/user-placeholder.png'
 
@@ -17,43 +19,56 @@ const CreateUserPage = () => {
 
   return (
     <div>
-      <p>Create</p>
-      <button onClick={handleCreateUser}>Click me</button>
+      {/* <p>Create</p>
+      <button onClick={handleCreateUser}>Click me</button> */}
       <div className="container">
         <div className="user-form">
-          <form action="">
-            <img className="user-img" src={png} alt="" />
-            <br />
-            <label htmlFor="file">Заменить</label>
-            <input type="file" id="file" />
-            <br />
+          <form className="formm" action="">
+            <div className="create_form">
+              <img className="user-img" src={png} alt="" />
+            </div>
+            <div className="img-input">
+              <label htmlFor="file">Заменить</label>
+              <input type="file" id="file" />
+            </div>
 
-            <label htmlFor="name"></label>
-            <UserInput />
-            <br />
+            <div className="input-block">
+              <label htmlFor="name">Имя</label>
+              <UserInput />
+            </div>
+            <div className="input-block">
+              <label htmlFor="email">Email</label>
+              <UserInput />
+            </div>
 
-            <label htmlFor="email"></label>
-            <UserInput />
-            <br />
+            <div className="input-block">
+              <label htmlFor="date">Дата рождения</label>
+              <input type="date" id="date" name="date" />
+            </div>
 
-            <label htmlFor="date"></label>
-            <input type="date" id="date" name="date" />
-            <br />
-
-            <label htmlFor="programming-language">Любимая еда</label>
-            <select
-              id="programming-language"
-              name="programming-language"
-              multiple
-            >
-              <option value="ruby">Выбрать все</option>
-              <option value="python">Морковка</option>
-              <option value="javascript">Капуста</option>
-              <option value="java">Свекла</option>
-              <option value="csharp">Редиска</option>
-              <option value="cpp">Сосиска</option>
-              <option value="php">Пирожок</option>
-            </select>
+            <div className="input-block">
+              <label htmlFor="programming-language">Любимая еда</label>
+              <SelectInput id="programming-language" width="100%" />
+              {/* <select
+                id="programming-language"
+                name="programming-language"
+                multiple
+              >
+                <option value="ruby">Выбрать все</option>
+                <option value="python">Морковка</option>
+                <option value="javascript">Капуста</option>
+                <option value="java">Свекла</option>
+                <option value="csharp">Редиска</option>
+                <option value="cpp">Сосиска</option>
+                <option value="php">Пирожок</option>
+              </select> */}
+            </div>
+            <ButtonSave
+              title="Сохранить"
+              bgColor="#28a745"
+              bgColorHover="#218838"
+              bgBorderColor="#1e7e34"
+            />
           </form>
         </div>
       </div>

@@ -1,11 +1,12 @@
 import { Button } from '@mui/material'
 
-const UserButton = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
+const ButtonSave = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
   return (
     <Button
       variant="contained"
       sx={{
         fontSize: '13px',
+        width: '105px',
         border: '1px solid transparent',
         backgroundColor: bgColor,
         padding: '0.375rem 0.75rem',
@@ -21,4 +22,4 @@ const UserButton = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
   )
 }
 
-export default UserButton
+export default ButtonSave
