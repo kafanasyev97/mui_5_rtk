@@ -1,8 +1,9 @@
 import { TextField } from '@mui/material'
 
-const UserInput = () => {
+const UserInput = (field) => {
   return (
     <TextField
+      {...field}
       type="text"
       variant="outlined"
       sx={{

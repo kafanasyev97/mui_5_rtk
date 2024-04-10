@@ -1,5 +1,6 @@
 import { useCreateUserMutation } from '../app/redux'
 import ButtonSave from '../shared/ButtonSave'
+import CreateFormUser from '../shared/CreateForm'
 import SelectInput from '../shared/SelectInput'
 import UserInput from '../shared/UserInput'
 import png from '../shared/images/user-placeholder.png'
@@ -23,7 +24,7 @@ const CreateUserPage = () => {
       <button onClick={handleCreateUser}>Click me</button> */}
       <div className="container">
         <div className="user-form">
-          <form className="formm" action="">
+          {/* <form className="formm" action="">
             <div className="create_form">
               <img className="user-img" src={png} alt="" />
             </div>
@@ -49,19 +50,6 @@ const CreateUserPage = () => {
             <div className="input-block">
               <label htmlFor="programming-language">Любимая еда</label>
               <SelectInput id="programming-language" width="100%" />
-              {/* <select
-                id="programming-language"
-                name="programming-language"
-                multiple
-              >
-                <option value="ruby">Выбрать все</option>
-                <option value="python">Морковка</option>
-                <option value="javascript">Капуста</option>
-                <option value="java">Свекла</option>
-                <option value="csharp">Редиска</option>
-                <option value="cpp">Сосиска</option>
-                <option value="php">Пирожок</option>
-              </select> */}
             </div>
             <ButtonSave
               title="Сохранить"
@@ -69,7 +57,8 @@ const CreateUserPage = () => {
               bgColorHover="#218838"
               bgBorderColor="#1e7e34"
             />
-          </form>
+          </form> */}
+          <CreateFormUser />
         </div>
       </div>
     </div>
