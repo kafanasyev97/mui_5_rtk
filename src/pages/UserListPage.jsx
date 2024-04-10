@@ -3,6 +3,7 @@ import png from '../shared/images/user-placeholder.png'
 import { Link } from 'react-router-dom'
 import { TextField } from '@mui/material'
 import UserButton from '../shared/UserButton'
+import UserInput from '../shared/TextField'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
@@ -51,17 +52,7 @@ const UserListPage = () => {
             </th>
             <th></th>
             <th style={{ width: '200px' }}>
-              <TextField
-                sx={{
-                  '& .MuiOutlinedInput-root': {
-                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-                      borderColor: 'green', // Зеленая рамка при фокусировке
-                    },
-                  },
-                }}
-                id="outlined-basic"
-                variant="outlined"
-              />
+              <UserInput />
             </th>
             <th style={{ width: '200px' }}>
               <input type="text" />
