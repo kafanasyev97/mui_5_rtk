@@ -1,6 +1,8 @@
 import { useGetUserListQuery } from '../app/redux'
 import png from '../shared/images/user-placeholder.png'
 import { Link } from 'react-router-dom'
+import { TextField } from '@mui/material'
+import UserButton from '../shared/UserButton'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
@@ -18,7 +20,9 @@ const UserListPage = () => {
         </ol>
       </nav>
       <p>
-        <Link to="/user/create">Добавить пользователя</Link>
+        <Link to="/user/create">
+          <UserButton />
+        </Link>
       </p>
       <table className="table">
         <thead>
@@ -34,13 +38,27 @@ const UserListPage = () => {
           <tr>
             <th></th>
             <th>
-              <input type="text" />
+              <TextField
+                id="outlined-basic"
+                label="Outlined"
+                variant="outlined"
+              />
             </th>
             <th></th>
-            <th>
-              <input type="text" />
+            <th style={{ width: '200px' }}>
+              <TextField
+                sx={{
+                  '& .MuiOutlinedInput-root': {
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'green', // Зеленая рамка при фокусировке
+                    },
+                  },
+                }}
+                id="outlined-basic"
+                variant="outlined"
+              />
             </th>
-            <th>
+            <th style={{ width: '200px' }}>
               <input type="text" />
             </th>
             <th>
