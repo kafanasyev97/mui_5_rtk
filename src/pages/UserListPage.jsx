@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import UserButton from '../shared/UserButton'
 import UserInput from '../shared/UserInput'
 import DateField from '../shared/DateField'
+import SelectInput from '../shared/SelectInput'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
@@ -57,7 +58,7 @@ const UserListPage = () => {
               <DateField />
             </th>
             <th>
-              <UserInput />
+              <SelectInput />
             </th>
           </tr>
         </thead>
