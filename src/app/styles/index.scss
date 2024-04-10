@@ -146,3 +146,14 @@ p {
   color: #6c757d;
   content: '/';
 }
+
+.table-view {
+  width: 50%;
+  border-collapse: collapse;
+}
+.th-view,
+.td-view {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: left;
+}
