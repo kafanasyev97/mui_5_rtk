@@ -1,21 +1,21 @@
 import { Button } from '@mui/material'
 
-const UserButton = () => {
+const UserButton = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
   return (
     <Button
       variant="contained"
       sx={{
         border: '1px solid transparent',
-        backgroundColor: '#28a745',
+        backgroundColor: bgColor,
         padding: '0.375rem 0.75rem',
         color: '#fff',
         '&:hover': {
-          backgroundColor: '#218838',
-          borderColor: '#1e7e34',
+          backgroundColor: bgColorHover,
+          borderColor: bgBorderColor,
         },
       }}
     >
-      Добавить пользователя
+      {title}
     </Button>
   )
 }

@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import png from '../shared/images/user-placeholder.png'
+import UserButton from '../shared/UserButton'
 
 const ViewUserPage = () => {
   const user = {
@@ -23,8 +24,22 @@ const ViewUserPage = () => {
         </ol>
       </nav>
       <div>
-        <Link to="/user/update/93">Изменить</Link>
-        <Link to="#">Удалить</Link>
+        <Link to="/user/update/93">
+          <UserButton
+            title="Изменить"
+            bgColor="#007bff"
+            bgColorHover="#0069d9"
+            bgBorderColor="#0062cc"
+          />
+        </Link>
+        <Link to="#">
+          <UserButton
+            title="Удалить"
+            bgColor="#dc3545"
+            bgColorHover="#c82333"
+            bgBorderColor="#bd2130"
+          />
+        </Link>
       </div>
       <table className="table-view">
         <tr>

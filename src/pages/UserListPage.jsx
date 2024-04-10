@@ -21,7 +21,12 @@ const UserListPage = () => {
       </nav>
       <p>
         <Link to="/user/create">
-          <UserButton />
+          <UserButton
+            title="Добавить пользователя"
+            bgColor="#28a745"
+            bgColorHover="#218838"
+            bgBorderColor="#1e7e34"
+          />
         </Link>
       </p>
       <table className="table">

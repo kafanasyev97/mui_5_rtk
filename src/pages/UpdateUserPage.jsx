@@ -1,3 +1,4 @@
+import UserButton from '../shared/UserButton'
 import png from '../shared/images/user-placeholder.png'
 
 const UpdateUserPage = () => {
@@ -37,6 +38,12 @@ const UpdateUserPage = () => {
             <option value="cpp">Сосиска</option>
             <option value="php">Пирожок</option>
           </select>
+          <UserButton
+            title="Сохранить"
+            bgColor="#28a745"
+            bgColorHover="#218838"
+            bgBorderColor="#1e7e34"
+          />
         </form>
       </div>
     </div>
