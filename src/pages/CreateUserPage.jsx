@@ -1,5 +1,5 @@
 import { useCreateUserMutation } from '../app/redux'
-import UserInput from '../shared/TextField'
+import UserInput from '../shared/UserInput'
 import png from '../shared/images/user-placeholder.png'
 
 const CreateUserPage = () => {

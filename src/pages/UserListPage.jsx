@@ -1,9 +1,9 @@
 import { useGetUserListQuery } from '../app/redux'
 import png from '../shared/images/user-placeholder.png'
 import { Link } from 'react-router-dom'
-import { TextField } from '@mui/material'
 import UserButton from '../shared/UserButton'
-import UserInput from '../shared/TextField'
+import UserInput from '../shared/UserInput'
+import DateField from '../shared/DateField'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
@@ -54,7 +54,7 @@ const UserListPage = () => {
               <UserInput />
             </th>
             <th>
-              <UserInput />
+              <DateField />
             </th>
             <th>
               <UserInput />
