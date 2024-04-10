@@ -27,7 +27,7 @@ const UserInput = () => {
             boxShadow: '0 0 0 0.2rem rgba(0, 123, 255, 0.25)',
           },
         borderRadius: '0.25rem',
-        height: 'calc(1.5em + 0.75rem + 2px)',
+        // height: 'calc(1.5em + 0.75rem + 2px)',
       }}
     />
   )

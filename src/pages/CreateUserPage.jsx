@@ -1,4 +1,5 @@
 import { useCreateUserMutation } from '../app/redux'
+import UserInput from '../shared/TextField'
 import png from '../shared/images/user-placeholder.png'
 
 const CreateUserPage = () => {
@@ -28,11 +29,11 @@ const CreateUserPage = () => {
             <br />
 
             <label htmlFor="name"></label>
-            <input id="name" type="text" />
+            <UserInput />
             <br />
 
             <label htmlFor="email"></label>
-            <input id="email" type="email" />
+            <UserInput />
             <br />
 
             <label htmlFor="date"></label>

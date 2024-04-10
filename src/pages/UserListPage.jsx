@@ -44,24 +44,20 @@ const UserListPage = () => {
           <tr>
             <th></th>
             <th>
-              <TextField
-                id="outlined-basic"
-                label="Outlined"
-                variant="outlined"
-              />
+              <UserInput />
             </th>
             <th></th>
             <th style={{ width: '200px' }}>
               <UserInput />
             </th>
             <th style={{ width: '200px' }}>
-              <input type="text" />
+              <UserInput />
             </th>
             <th>
-              <input type="text" />
+              <UserInput />
             </th>
             <th>
-              <input type="text" />
+              <UserInput />
             </th>
           </tr>
         </thead>
