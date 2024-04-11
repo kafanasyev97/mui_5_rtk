@@ -3,15 +3,29 @@ import SelectInput from './SelectInput'
 import UserInput from './UserInput'
 import png from '../shared/images/user-placeholder.png'
 import ButtonSave from '../shared/ButtonSave'
+import { yupResolver } from '@hookform/resolvers/yup'
+import * as yup from 'yup'
+
+const schema = yup.object({
+  name: yup.string().required('Необходимо заполнить «Имя».'),
+  email: yup
+    .string()
+    .required('Необходимо заполнить «Email».')
+    .email('Значение «Email» не является правильным email адресом.'),
+  birthdate: yup.string().required('Необходимо заполнить «Дата рождения».'),
+})
 
 const CreateFormUser = () => {
-  const { control, handleSubmit } = useForm({
-    defaultValues: {
-      firstName: '',
-      select: {},
-    },
+  const {
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: yupResolver(schema),
+    mode: 'onBlur',
   })
   const onSubmit = (data) => console.log(data)
+  console.log(errors)
 
   return (
     <div>
@@ -32,6 +46,7 @@ const CreateFormUser = () => {
             control={control}
             render={({ field }) => <UserInput {...field} id="name" />}
           />
+          <p className="error-text">{errors.name?.message}</p>
         </div>
 
         <div className="input-block">
@@ -41,16 +56,17 @@ const CreateFormUser = () => {
             control={control}
             render={({ field }) => <UserInput {...field} id="email" />}
           />
+          <p className="error-text">{errors.email?.message}</p>
         </div>
 
         <div className="input-block">
-          <label htmlFor="date">Дата рождения</label>
+          <label htmlFor="birthdate">Дата рождения</label>
           <Controller
-            id="date"
             name="birthdate"
             control={control}
-            render={({ field }) => <UserInput {...field} id="date" />}
+            render={({ field }) => <UserInput {...field} id="birthdate" />}
           />
+          <p className="error-text">{errors.birthdate?.message}</p>
         </div>
 
         <div className="input-block">
