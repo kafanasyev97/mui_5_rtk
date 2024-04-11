@@ -2,8 +2,12 @@ import { useForm, Controller } from 'react-hook-form'
 import SelectInput from './SelectInput'
 import UserInput from './UserInput'
 import png from '../shared/images/user-placeholder.png'
+import MultipleSelect from './MultSelect'
+import Form from './MultSelect'
+import { useState } from 'react'
 
 const CreateFormUser = () => {
+  const [selectValue, setSelectValue] = useState([])
   const { control, handleSubmit } = useForm({
     defaultValues: {
       firstName: '',
@@ -13,64 +17,67 @@ const CreateFormUser = () => {
   const onSubmit = (data) => console.log(data)
 
   return (
-    <form className="formm" onSubmit={handleSubmit(onSubmit)}>
-      <div className="create_form">
-        <img className="user-img" src={png} alt="" />
-      </div>
-      <div className="img-input">
-        <label htmlFor="file">Заменить</label>
-        <input type="file" id="file" />
-      </div>
+    <div>
+      <form className="formm" onSubmit={handleSubmit(onSubmit)}>
+        <div className="create_form">
+          <img className="user-img" src={png} alt="" />
+        </div>
+        <div className="img-input">
+          <label htmlFor="file">Заменить</label>
+          <input type="file" id="file" />
+        </div>
 
-      <div className="input-block">
-        <label htmlFor="name">Имя</label>
-        <Controller
-          name="name"
-          control={control}
-          render={({ field }) => <input {...field} />}
-        />
-      </div>
+        <div className="input-block">
+          <label htmlFor="name">Имя</label>
+          <Controller
+            width="300"
+            name="name"
+            control={control}
+            render={({ field }) => <UserInput {...field} />}
+          />
+        </div>
 
-      <div className="input-block">
-        <label htmlFor="email">Email</label>
-        <Controller
-          name="email"
-          control={control}
-          render={({ field }) => <UserInput {...field} />}
-        />
-      </div>
+        <div className="input-block">
+          <label htmlFor="email">Email</label>
+          <Controller
+            name="email"
+            control={control}
+            render={({ field }) => <UserInput {...field} />}
+          />
+        </div>
 
-      <div className="input-block">
-        <label htmlFor="date">Дата рождения</label>
-        <Controller
-          name="birthdate"
-          control={control}
-          render={({ field }) => <UserInput {...field} />}
-        />
-      </div>
+        <div className="input-block">
+          <label htmlFor="date">Дата рождения</label>
+          <Controller
+            id="date"
+            name="birthdate"
+            control={control}
+            render={({ field }) => <UserInput {...field} />}
+          />
+        </div>
 
-      <div className="input-block">
-        <label htmlFor="programming-language">Любимая еда</label>
-        <Controller
-          name="favorite_food_ids"
-          control={control}
-          render={({ field }) => (
-            <SelectInput
-              {...field}
-              options={[
-                { value: 'morkov', label: 'Морковка' },
-                { value: 'kapusta', label: 'Капуста' },
-                { value: 'svekla', label: 'Свекла' },
-                { value: 'rediska', label: 'Редиска' },
-                { value: 'sosiska', label: 'Сосиска' },
-                { value: 'pirozhok', label: 'Пирожок' },
-              ]}
-            />
-          )}
-        />
-      </div>
-      <input type="submit" />
-    </form>
+        {/* <div className="input-block">
+          <label htmlFor="favorite_food_ids">Любимая еда</label>
+          <Controller
+            name="favorite_food_ids"
+            control={control}
+            render={({ field }) => <SelectInput {...field} />}
+          />
+        </div> */}
+
+        <div className="input-block">
+          <label htmlFor="favorite_food_ids">Любимая еда</label>
+          <Controller
+            name="favorite_food_ids"
+            control={control}
+            defaultValue={[]}
+            render={({ field }) => <SelectInput {...field} width="300px" />}
+          />
+        </div>
+
+        <input type="submit" />
+      </form>
+    </div>
   )
 }
 
