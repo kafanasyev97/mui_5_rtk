@@ -56,22 +56,13 @@ const CreateFormUser = () => {
           />
         </div>
 
-        {/* <div className="input-block">
-          <label htmlFor="favorite_food_ids">Любимая еда</label>
-          <Controller
-            name="favorite_food_ids"
-            control={control}
-            render={({ field }) => <SelectInput {...field} />}
-          />
-        </div> */}
-
         <div className="input-block">
           <label htmlFor="favorite_food_ids">Любимая еда</label>
           <Controller
             name="favorite_food_ids"
             control={control}
             defaultValue={[]}
-            render={({ field }) => <SelectInput {...field} width="300px" />}
+            render={({ field }) => <SelectInput {...field} width="100%" />}
           />
         </div>
 

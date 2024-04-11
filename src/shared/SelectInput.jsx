@@ -1,9 +1,10 @@
 import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
+import UserInput from './UserInput'
 
 export default function SelectInput(field) {
-  const width = field.width || 300
+  const width = field.width || 200
   return (
     <Stack spacing={3} sx={{ width }}>
       <Autocomplete
@@ -15,7 +16,7 @@ export default function SelectInput(field) {
         getOptionLabel={list.label}
         onChange={(event, value) => field.onChange(value)}
         filterSelectedOptions
-        renderInput={(params) => <TextField {...params} />}
+        renderInput={(params) => <UserInput {...params} />}
       />
     </Stack>
   )
