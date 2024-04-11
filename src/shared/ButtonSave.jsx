@@ -3,6 +3,7 @@ import { Button } from '@mui/material'
 const ButtonSave = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
   return (
     <Button
+      type="submit"
       variant="contained"
       sx={{
         fontSize: '13px',

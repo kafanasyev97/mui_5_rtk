@@ -2,12 +2,9 @@ import { useForm, Controller } from 'react-hook-form'
 import SelectInput from './SelectInput'
 import UserInput from './UserInput'
 import png from '../shared/images/user-placeholder.png'
-import MultipleSelect from './MultSelect'
-import Form from './MultSelect'
-import { useState } from 'react'
+import ButtonSave from '../shared/ButtonSave'
 
 const CreateFormUser = () => {
-  const [selectValue, setSelectValue] = useState([])
   const { control, handleSubmit } = useForm({
     defaultValues: {
       firstName: '',
@@ -33,7 +30,7 @@ const CreateFormUser = () => {
             width="300"
             name="name"
             control={control}
-            render={({ field }) => <UserInput {...field} />}
+            render={({ field }) => <UserInput {...field} id="name" />}
           />
         </div>
 
@@ -42,7 +39,7 @@ const CreateFormUser = () => {
           <Controller
             name="email"
             control={control}
-            render={({ field }) => <UserInput {...field} />}
+            render={({ field }) => <UserInput {...field} id="email" />}
           />
         </div>
 
@@ -52,7 +49,7 @@ const CreateFormUser = () => {
             id="date"
             name="birthdate"
             control={control}
-            render={({ field }) => <UserInput {...field} />}
+            render={({ field }) => <UserInput {...field} id="date" />}
           />
         </div>
 
@@ -66,7 +63,12 @@ const CreateFormUser = () => {
           />
         </div>
 
-        <input type="submit" />
+        <ButtonSave
+          title="Сохранить"
+          bgColor="#28a745"
+          bgColorHover="#218838"
+          bgBorderColor="#1e7e34"
+        />
       </form>
     </div>
   )

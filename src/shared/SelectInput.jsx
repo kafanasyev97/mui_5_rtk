@@ -11,7 +11,6 @@ export default function SelectInput(field) {
         {...field}
         forcePopupIcon={false}
         multiple
-        id={field.name}
         options={list}
         getOptionLabel={list.label}
         onChange={(event, value) => field.onChange(value)}

@@ -4,6 +4,7 @@ const UserInput = (field) => {
   return (
     <TextField
       {...field}
+      id={field.id}
       type="text"
       variant="outlined"
       sx={{
