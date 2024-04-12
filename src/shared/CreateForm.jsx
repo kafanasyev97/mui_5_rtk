@@ -35,7 +35,7 @@ const CreateFormUser = () => {
         </div>
         <div className="img-input">
           <label htmlFor="file">Заменить</label>
-          <input type="file" id="file" />
+          <input style={{ display: 'none' }} type="file" id="file" />
         </div>
 
         <div className="input-block">

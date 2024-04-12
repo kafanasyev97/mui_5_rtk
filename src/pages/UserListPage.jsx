@@ -8,6 +8,7 @@ import SelectInput from '../shared/SelectInput'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
+  console.log('2222', data)
 
   return (
     <div className="container">
