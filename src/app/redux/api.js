@@ -7,6 +7,9 @@ export const userApi = createApi({
     getUserList: build.query({
       query: () => 'v1/user/index',
     }),
+    getFoodsList: build.query({
+      query: () => 'v1/user/get-food-list',
+    }),
     createUser: build.mutation({
       query: (body) => ({
         url: 'v1/user/create',
@@ -17,4 +20,8 @@ export const userApi = createApi({
   }),
 })
 
-export const { useGetUserListQuery, useCreateUserMutation } = userApi
+export const {
+  useGetUserListQuery,
+  useGetFoodsListQuery,
+  useCreateUserMutation,
+} = userApi

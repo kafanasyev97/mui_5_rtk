@@ -1,4 +1,4 @@
-import { useGetUserListQuery } from '../app/redux'
+import { useGetFoodsListQuery, useGetUserListQuery } from '../app/redux'
 import png from '../shared/images/user-placeholder.png'
 import { Link } from 'react-router-dom'
 import UserButton from '../shared/UserButton'
@@ -9,7 +9,9 @@ import User from '../entities/User'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
+  const foodsList = useGetFoodsListQuery()
   console.log('2222', data)
+  console.log('3333', foodsList)
 
   return (
     <div className="container">
