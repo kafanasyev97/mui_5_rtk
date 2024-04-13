@@ -1,8 +1,16 @@
-import { useCreateUserMutation } from '../app/redux'
+import { useCreateUserMutation, useGetFoodsListQuery } from '../app/redux'
 import CreateFormUser from '../shared/CreateForm'
 
 const CreateUserPage = () => {
   const [addUser, { isError }] = useCreateUserMutation()
+  const foods = useGetFoodsListQuery()
+  const foodsData = foods.data
+
+  const foodsList = []
+
+  for (const food in foodsData) {
+    foodsList.push({ id: food, label: foodsData[food] })
+  }
 
   const user = {
     username: 'gera',
@@ -20,7 +28,7 @@ const CreateUserPage = () => {
       <button onClick={handleCreateUser}>Click me</button> */}
       <div className="container">
         <div className="user-form">
-          <CreateFormUser />
+          <CreateFormUser foodsList={foodsList} />
         </div>
       </div>
     </div>

@@ -4,14 +4,17 @@ import UserInput from './UserInput'
 
 export default function SelectInput(field) {
   const width = field.width || 200
+
   return (
     <Stack spacing={3} sx={{ width }}>
       <Autocomplete
         {...field}
+        value={field.value}
         forcePopupIcon={false}
         multiple
-        options={list}
-        getOptionLabel={list.label}
+        options={field.foodsList}
+        getOptionLabel={(option) => option.label}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
         onChange={(event, value) => field.onChange(value)}
         filterSelectedOptions
         renderInput={(params) => <UserInput {...params} />}
@@ -19,12 +22,3 @@ export default function SelectInput(field) {
     </Stack>
   )
 }
-
-const list = [
-  { id: 1, label: 'Морковка' },
-  { id: 2, label: 'Капуста' },
-  { id: 3, label: 'Свекла' },
-  { id: 4, label: 'Редиска' },
-  { id: 5, label: 'Сосиска' },
-  { id: 6, label: 'Пирожок' },
-]

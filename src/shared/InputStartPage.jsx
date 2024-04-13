@@ -3,10 +3,10 @@ import Stack from '@mui/material/Stack'
 import UserInput from './UserInput'
 
 export default function InputStartPage({ foods }) {
-  const lst = []
+  const foodsList = []
 
   for (const food in foods) {
-    lst.push({ id: food, label: foods[food] })
+    foodsList.push({ id: food, label: foods[food] })
   }
 
   return (
@@ -14,21 +14,12 @@ export default function InputStartPage({ foods }) {
       <Autocomplete
         forcePopupIcon={false}
         multiple
-        options={list}
-        getOptionLabel={list.label}
-        // onChange={(event, value) => field.onChange(value)}
+        options={foodsList}
+        getOptionLabel={(option) => option.label}
+        onChange={() => console.log('6666')}
         filterSelectedOptions
         renderInput={(params) => <UserInput {...params} />}
       />
     </Stack>
   )
 }
-
-const list = [
-  { id: 1, label: 'Морковка' },
-  { id: 2, label: 'Капуста' },
-  { id: 3, label: 'Свекла' },
-  { id: 4, label: 'Редиска' },
-  { id: 5, label: 'Сосиска' },
-  { id: 6, label: 'Пирожок' },
-]

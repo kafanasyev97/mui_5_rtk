@@ -15,7 +15,7 @@ const schema = yup.object({
   birthdate: yup.string().required('Необходимо заполнить «Дата рождения».'),
 })
 
-const CreateFormUser = () => {
+const CreateFormUser = ({ foodsList }) => {
   const {
     control,
     handleSubmit,
@@ -72,10 +72,13 @@ const CreateFormUser = () => {
         <div className="input-block">
           <label htmlFor="favorite_food_ids">Любимая еда</label>
           <Controller
+            id="favorite_food_ids"
             name="favorite_food_ids"
             control={control}
             defaultValue={[]}
-            render={({ field }) => <SelectInput {...field} width="100%" />}
+            render={({ field }) => (
+              <SelectInput {...field} foodsList={foodsList} width="100%" />
+            )}
           />
         </div>
 
