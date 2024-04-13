@@ -5,6 +5,7 @@ import png from '../shared/images/user-placeholder.png'
 import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
+import { useState } from 'react'
 
 const schema = yup.object({
   name: yup.string().required('Необходимо заполнить «Имя».'),
@@ -16,6 +17,7 @@ const schema = yup.object({
 })
 
 const CreateFormUser = ({ foodsList }) => {
+  const [imageUrl, setImageUrl] = useState(png)
   const {
     control,
     handleSubmit,
@@ -24,18 +26,35 @@ const CreateFormUser = ({ foodsList }) => {
     resolver: yupResolver(schema),
     mode: 'onBlur',
   })
+
   const onSubmit = (data) => console.log(data)
-  console.log(errors)
+
+  const handleFileChange = (event) => {
+    const file = event.target.files[0]
+    console.log('3333', file)
+
+    if (file) {
+      const reader = new FileReader()
+      console.log('4444', reader)
+      reader.onload = (e) => setImageUrl(e.target.result)
+      reader.readAsDataURL(file)
+    }
+  }
 
   return (
     <div>
       <form className="formm" onSubmit={handleSubmit(onSubmit)}>
         <div className="create_form">
-          <img className="user-img" src={png} alt="" />
+          <img className="user-img" src={imageUrl} alt="" />
         </div>
         <div className="img-input">
           <label htmlFor="file">Заменить</label>
-          <input style={{ display: 'none' }} type="file" id="file" />
+          <input
+            onChange={handleFileChange}
+            style={{ display: 'none' }}
+            type="file"
+            id="file"
+          />
         </div>
 
         <div className="input-block">
