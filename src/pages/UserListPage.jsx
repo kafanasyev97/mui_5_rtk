@@ -1,18 +1,14 @@
 import { useGetFoodsListQuery, useGetUserListQuery } from '../app/redux'
-import png from '../shared/images/user-placeholder.png'
 import { Link } from 'react-router-dom'
 import UserButton from '../shared/UserButton'
 import UserInput from '../shared/UserInput'
 import DateField from '../shared/DateField'
-import SelectInput from '../shared/SelectInput'
 import User from '../entities/User'
 import InputStartPage from '../shared/InputStartPage'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
-  const foodsList = useGetFoodsListQuery()
-  console.log('2222', data)
-  console.log('3333', foodsList)
+  const foods = useGetFoodsListQuery()
 
   return (
     <div className="container">
@@ -63,7 +59,7 @@ const UserListPage = () => {
               <DateField />
             </th>
             <th>
-              <InputStartPage />
+              <InputStartPage foods={foods.data} />
             </th>
           </tr>
         </thead>

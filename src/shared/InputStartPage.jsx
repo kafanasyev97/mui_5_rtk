@@ -2,7 +2,13 @@ import Autocomplete from '@mui/material/Autocomplete'
 import Stack from '@mui/material/Stack'
 import UserInput from './UserInput'
 
-export default function InputStartPage() {
+export default function InputStartPage({ foods }) {
+  const lst = []
+
+  for (const food in foods) {
+    lst.push({ id: food, label: foods[food] })
+  }
+
   return (
     <Stack spacing={3} sx={{ width: 250 }}>
       <Autocomplete
