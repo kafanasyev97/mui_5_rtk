@@ -1,9 +1,5 @@
 import { useCreateUserMutation } from '../app/redux'
-import ButtonSave from '../shared/ButtonSave'
 import CreateFormUser from '../shared/CreateForm'
-import SelectInput from '../shared/SelectInput'
-import UserInput from '../shared/UserInput'
-import png from '../shared/images/user-placeholder.png'
 
 const CreateUserPage = () => {
   const [addUser, { isError }] = useCreateUserMutation()
