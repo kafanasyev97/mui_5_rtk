@@ -61,12 +61,22 @@ const CreateFormUser = ({ foodsList }) => {
           <img className="user-img" src={imageUrl} alt="" />
         </div>
         <div className="img-input">
-          <label htmlFor="file">Заменить</label>
-          <input
-            onChange={handleFileChange}
-            style={{ display: 'none' }}
-            type="file"
-            id="file"
+          <label htmlFor="upload_photo">Заменить</label>
+          <Controller
+            name="upload_photo"
+            control={control}
+            // defaultValue={null} // Значение по умолчанию
+            render={({ field }) => (
+              <input
+                type="file"
+                style={{ display: 'none' }}
+                onChange={(e) => {
+                  handleFileChange(e)
+                  field.onChange(e.target.files[0])
+                }}
+                id="upload_photo"
+              />
+            )}
           />
         </div>
 
@@ -78,7 +88,7 @@ const CreateFormUser = ({ foodsList }) => {
             control={control}
             render={({ field }) => <UserInput {...field} id="username" />}
           />
-          <p className="error-text">{errors.name?.message}</p>
+          <p className="error-text">{errors.username?.message}</p>
         </div>
 
         <div className="input-block">
@@ -111,21 +121,6 @@ const CreateFormUser = ({ foodsList }) => {
             render={({ field }) => (
               <SelectInput {...field} foodsList={foodsList} width="100%" />
             )}
-          />
-        </div>
-
-        <div className="input-block">
-          <label htmlFor="upload_photo">Любимая еда</label>
-          <Controller
-            name="upload_photo" // Название поля формы
-            control={control}
-            // defaultValue={null} // Значение по умолчанию
-            render={({ field }) => (
-              <input
-                type="file"
-                onChange={(e) => field.onChange(e.target.files[0])}
-              />
-            )} // Передаем пропсы field в input
           />
         </div>
 
