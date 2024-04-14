@@ -6,9 +6,11 @@ import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useState } from 'react'
+import TestInput from './TestInput'
+import { useCreateUserMutation } from '../app/redux'
 
 const schema = yup.object({
-  name: yup.string().required('Необходимо заполнить «Имя».'),
+  username: yup.string().required('Необходимо заполнить «Имя».'),
   email: yup
     .string()
     .required('Необходимо заполнить «Email».')
@@ -17,6 +19,7 @@ const schema = yup.object({
 })
 
 const CreateFormUser = ({ foodsList }) => {
+  const [addUser] = useCreateUserMutation()
   const [imageUrl, setImageUrl] = useState(png)
   const {
     control,
@@ -27,15 +30,22 @@ const CreateFormUser = ({ foodsList }) => {
     mode: 'onBlur',
   })
 
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = async (data) => {
+    console.log(data)
+    Object.keys(data).forEach((key) => {
+      if (!data[key]) {
+        delete data[key]
+      }
+    })
+
+    await addUser(data).unwrap()
+  }
 
   const handleFileChange = (event) => {
     const file = event.target.files[0]
-    console.log('3333', file)
 
     if (file) {
       const reader = new FileReader()
-      console.log('4444', reader)
       reader.onload = (e) => setImageUrl(e.target.result)
       reader.readAsDataURL(file)
     }
@@ -58,12 +68,12 @@ const CreateFormUser = ({ foodsList }) => {
         </div>
 
         <div className="input-block">
-          <label htmlFor="name">Имя</label>
+          <label htmlFor="username">Имя</label>
           <Controller
             width="300"
-            name="name"
+            name="username"
             control={control}
-            render={({ field }) => <UserInput {...field} id="name" />}
+            render={({ field }) => <UserInput {...field} id="username" />}
           />
           <p className="error-text">{errors.name?.message}</p>
         </div>
@@ -94,12 +104,27 @@ const CreateFormUser = ({ foodsList }) => {
             id="favorite_food_ids"
             name="favorite_food_ids"
             control={control}
-            defaultValue={[]}
+            // defaultValue={[]}
             render={({ field }) => (
               <SelectInput {...field} foodsList={foodsList} width="100%" />
             )}
           />
         </div>
+
+        {/* <div className="input-block">
+          <label htmlFor="favorite_food_ids">Любимая еда</label>
+          <Controller
+            name="file" // Название поля формы
+            control={control}
+            defaultValue={null} // Значение по умолчанию
+            render={({ field }) => (
+              <input
+                type="file"
+                onChange={(e) => field.onChange(e.target.files[0])}
+              />
+            )} // Передаем пропсы field в input
+          />
+        </div> */}
 
         <ButtonSave
           title="Сохранить"
