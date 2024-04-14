@@ -1,20 +1,18 @@
 import { TextField } from '@mui/material'
 
-const UserInput = (field) => {
+const UserUpdateInput = (field) => {
   return (
     <TextField
       {...field}
       id={field.id}
-      // defaultValue={field.defaultValue}
-      // // value={field.defaultValue}
-      // onChange={(e) => {
-      //   console.log('dddd', field)
-      //   console.log('cccc', e)
-      //   console.log('qqqq', field.defaultValue)
-      //   console.log('eeee', e.target.value)
+      defaultValue={field.defaultValue}
+      onChange={(e) => {
+        console.log('dddd', field)
+        console.log('cccc', e)
+        console.log('eeee', e.target.value)
 
-      //   field.onChange(e.target.value)
-      // }}
+        field.onChange(e.target.value)
+      }}
       type="text"
       variant="outlined"
       sx={{
@@ -45,4 +43,4 @@ const UserInput = (field) => {
   )
 }
 
-export default UserInput
+export default UserUpdateInput

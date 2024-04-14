@@ -9,7 +9,7 @@ export default function SelectInput(field) {
     <Stack spacing={3} sx={{ width }}>
       <Autocomplete
         {...field}
-        value={field.value}
+        // value={field.value}
         forcePopupIcon={false}
         multiple
         options={field.foodsList}
