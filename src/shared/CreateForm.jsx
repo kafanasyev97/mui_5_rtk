@@ -6,7 +6,6 @@ import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useState } from 'react'
-import TestInput from './TestInput'
 import { useCreateUserMutation } from '../app/redux'
 
 const schema = yup.object({
@@ -31,14 +30,20 @@ const CreateFormUser = ({ foodsList }) => {
   })
 
   const onSubmit = async (data) => {
-    console.log(data)
+    const formData = new FormData()
     Object.keys(data).forEach((key) => {
       if (!data[key]) {
         delete data[key]
+      } else {
+        if (Array.isArray(data[key])) {
+          data[key].forEach((value, index) => {
+            formData.append(`${key}[${index}]`, value)
+          })
+        } else formData.set(key, data[key])
       }
     })
 
-    await addUser(data).unwrap()
+    await addUser(formData).unwrap()
   }
 
   const handleFileChange = (event) => {
@@ -111,12 +116,12 @@ const CreateFormUser = ({ foodsList }) => {
           />
         </div>
 
-        {/* <div className="input-block">
-          <label htmlFor="favorite_food_ids">Любимая еда</label>
+        <div className="input-block">
+          <label htmlFor="upload_photo">Любимая еда</label>
           <Controller
-            name="file" // Название поля формы
+            name="upload_photo" // Название поля формы
             control={control}
-            defaultValue={null} // Значение по умолчанию
+            // defaultValue={null} // Значение по умолчанию
             render={({ field }) => (
               <input
                 type="file"
@@ -124,7 +129,7 @@ const CreateFormUser = ({ foodsList }) => {
               />
             )} // Передаем пропсы field в input
           />
-        </div> */}
+        </div>
 
         <ButtonSave
           title="Сохранить"
