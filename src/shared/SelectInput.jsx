@@ -14,13 +14,8 @@ export default function SelectInput(field) {
         multiple
         options={field.foodsList}
         getOptionLabel={(option) => option.label}
-        isOptionEqualToValue={(option, value) =>
-          option.id === (value ? value.id : null)
-        }
-        onChange={(event, value) => {
-          console.log('Value:', value) // Проверяем значение value
-          field.onChange(value ? value.map((val) => val.id) : null) // Получаем массив id и передаем
-        }}
+        isOptionEqualToValue={(option, value) => option.id === value.id}
+        onChange={(event, value) => field.onChange(value.map((val) => val.id))}
         filterSelectedOptions
         renderInput={(params) => <UserInput {...params} />}
       />
