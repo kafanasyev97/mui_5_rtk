@@ -8,10 +8,22 @@ const User = ({
   birthdate,
   favorite_food_ids,
   photo_id,
+  foods,
 }) => {
+  console.log('22', favorite_food_ids)
+
   const photoUrl = photo_id
     ? `https://tasks.tizh.ru/file/get?id=${photo_id}`
     : png
+
+  const foodsList = () => {
+    if (!foods) return
+    const list = favorite_food_ids.map((food) => {
+      if (!food || food.includes(',')) return 'Не корректный ID еды'
+      return foods[food]
+    })
+    return list.join(', ')
+  }
 
   return (
     <>
@@ -22,7 +34,7 @@ const User = ({
       <td>{username}</td>
       <td>{email}</td>
       <td>{birthdate}</td>
-      <td>{[...favorite_food_ids]}</td>
+      <td>{foodsList()}</td>
       <td>
         <Link to="/user/view/93">
           <svg

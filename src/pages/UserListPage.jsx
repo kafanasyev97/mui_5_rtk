@@ -75,6 +75,7 @@ const UserListPage = () => {
                   birthdate={user.birthdate}
                   favorite_food_ids={user.favorite_food_ids}
                   photo_id={user.photo_id}
+                  foods={foods.data}
                 />
               </tr>
             )
