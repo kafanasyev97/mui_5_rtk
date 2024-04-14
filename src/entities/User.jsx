@@ -10,8 +10,6 @@ const User = ({
   photo_id,
   foods,
 }) => {
-  console.log('22', favorite_food_ids)
-
   const photoUrl = photo_id
     ? `https://tasks.tizh.ru/file/get?id=${photo_id}`
     : png

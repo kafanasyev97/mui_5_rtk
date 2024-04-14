@@ -7,9 +7,15 @@ export const userApi = createApi({
     getUserList: build.query({
       query: () => 'v1/user/index',
     }),
+
+    getUser: build.query({
+      query: (id) => `v1/user/view?id=${id}`,
+    }),
+
     getFoodsList: build.query({
       query: () => 'v1/user/get-food-list',
     }),
+
     createUser: build.mutation({
       query: (body) => ({
         url: 'v1/user/create',
@@ -17,11 +23,20 @@ export const userApi = createApi({
         body,
       }),
     }),
+
+    updateUser: build.mutation({
+      query: (id) => ({
+        url: `v1/user/update?id=${id}`,
+        method: 'PUT',
+      }),
+    }),
   }),
 })
 
 export const {
   useGetUserListQuery,
+  useGetUserQuery,
   useGetFoodsListQuery,
   useCreateUserMutation,
+  useUpdateUserMutation,
 } = userApi
