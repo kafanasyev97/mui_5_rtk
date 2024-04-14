@@ -32,9 +32,7 @@ const CreateFormUser = ({ foodsList }) => {
   const onSubmit = async (data) => {
     const formData = new FormData()
     Object.keys(data).forEach((key) => {
-      if (!data[key]) {
-        delete data[key]
-      } else {
+      if (data[key]) {
         if (Array.isArray(data[key])) {
           data[key].forEach((value, index) => {
             formData.append(`${key}[${index}]`, value)
