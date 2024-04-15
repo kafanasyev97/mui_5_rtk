@@ -25,9 +25,10 @@ export const userApi = createApi({
     }),
 
     updateUser: build.mutation({
-      query: (id) => ({
+      query: ({ id, formData }) => ({
         url: `v1/user/update?id=${id}`,
         method: 'PUT',
+        body: formData,
       }),
     }),
   }),

@@ -1,11 +1,11 @@
 import { useForm, Controller } from 'react-hook-form'
 import SelectInput from './SelectInput'
-import png from '../shared/images/user-placeholder.png'
+import defaultPng from '../shared/images/user-placeholder.png'
 import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useState } from 'react'
-import { useCreateUserMutation } from '../app/redux'
+import { useUpdateUserMutation, userApi } from '../app/redux'
 import UserUpdateInput from './UserUpdateInput'
 
 const schema = yup.object({
@@ -18,8 +18,13 @@ const schema = yup.object({
 })
 
 const UpdateFormUser = ({ foodsList, userData }) => {
-  const [addUser] = useCreateUserMutation()
-  const [imageUrl, setImageUrl] = useState(png)
+  const photoUrl = userData.photo_id
+    ? `https://tasks.tizh.ru/file/get?id=${userData.photo_id}`
+    : defaultPng
+
+  const [updateUser] = useUpdateUserMutation()
+  const [imageUrl, setImageUrl] = useState(photoUrl)
+
   const {
     control,
     handleSubmit,
@@ -41,7 +46,7 @@ const UpdateFormUser = ({ foodsList, userData }) => {
       }
     })
 
-    await addUser(formData).unwrap()
+    await updateUser({ id: userData.id, formData }).unwrap()
   }
 
   const handleFileChange = (event) => {
@@ -58,8 +63,6 @@ const UpdateFormUser = ({ foodsList, userData }) => {
     userData.favorite_food_ids.includes(el.id)
   )
 
-  console.log('gggggggg', defValueFoods)
-
   return (
     <div>
       <form className="formm" onSubmit={handleSubmit(onSubmit)}>
@@ -67,12 +70,21 @@ const UpdateFormUser = ({ foodsList, userData }) => {
           <img className="user-img" src={imageUrl} alt="" />
         </div>
         <div className="img-input">
-          <label htmlFor="file">Заменить</label>
-          <input
-            onChange={handleFileChange}
-            style={{ display: 'none' }}
-            type="file"
-            id="file"
+          <label htmlFor="upload_photo">Заменить</label>
+          <Controller
+            name="upload_photo"
+            control={control}
+            render={({ field }) => (
+              <input
+                type="file"
+                style={{ display: 'none' }}
+                onChange={(e) => {
+                  handleFileChange(e)
+                  field.onChange(e.target.files[0])
+                }}
+                id="upload_photo"
+              />
+            )}
           />
         </div>
 
@@ -142,21 +154,6 @@ const UpdateFormUser = ({ foodsList, userData }) => {
                 defaultValue={defValueFoods}
               />
             )}
-          />
-        </div>
-
-        <div className="input-block">
-          <label htmlFor="upload_photo">Photo</label>
-          <Controller
-            name="upload_photo"
-            control={control}
-            // defaultValue={null} // Значение по умолчанию
-            render={({ field }) => (
-              <input
-                type="file"
-                onChange={(e) => field.onChange(e.target.files[0])}
-              />
-            )} // Передаем пропсы field в input
           />
         </div>
 

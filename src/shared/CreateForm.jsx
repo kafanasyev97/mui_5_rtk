@@ -1,7 +1,7 @@
 import { useForm, Controller } from 'react-hook-form'
 import SelectInput from './SelectInput'
 import UserInput from './UserInput'
-import png from '../shared/images/user-placeholder.png'
+import defaultPng from '../shared/images/user-placeholder.png'
 import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
@@ -19,7 +19,7 @@ const schema = yup.object({
 
 const CreateFormUser = ({ foodsList }) => {
   const [addUser] = useCreateUserMutation()
-  const [imageUrl, setImageUrl] = useState(png)
+  const [imageUrl, setImageUrl] = useState(defaultPng)
   const {
     control,
     handleSubmit,
@@ -40,7 +40,6 @@ const CreateFormUser = ({ foodsList }) => {
         } else formData.set(key, data[key])
       }
     })
-
     await addUser(formData).unwrap()
   }
 
@@ -65,7 +64,6 @@ const CreateFormUser = ({ foodsList }) => {
           <Controller
             name="upload_photo"
             control={control}
-            // defaultValue={null} // Значение по умолчанию
             render={({ field }) => (
               <input
                 type="file"
@@ -117,7 +115,6 @@ const CreateFormUser = ({ foodsList }) => {
             id="favorite_food_ids"
             name="favorite_food_ids"
             control={control}
-            // defaultValue={[]}
             render={({ field }) => (
               <SelectInput {...field} foodsList={foodsList} width="100%" />
             )}
