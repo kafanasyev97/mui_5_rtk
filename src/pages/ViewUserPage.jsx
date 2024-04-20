@@ -1,8 +1,11 @@
-import { Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import png from '../shared/images/user-placeholder.png'
 import UserButton from '../shared/UserButton'
 
 const ViewUserPage = () => {
+  const params = useParams()
+  console.log('333', params)
+
   const user = {
     id: 22,
     username: 'gera',
@@ -24,7 +27,7 @@ const ViewUserPage = () => {
         </ol>
       </nav>
       <div>
-        <Link to="/user/update/93">
+        <Link to={`/user/update/${params.id}`}>
           <UserButton
             title="Изменить"
             bgColor="#007bff"

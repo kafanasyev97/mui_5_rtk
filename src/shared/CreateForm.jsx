@@ -7,6 +7,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useState } from 'react'
 import { useCreateUserMutation } from '../app/redux'
+import { useNavigate } from 'react-router-dom'
 
 const schema = yup.object({
   username: yup.string().required('Необходимо заполнить «Имя».'),
@@ -20,6 +21,7 @@ const schema = yup.object({
 const CreateFormUser = ({ foodsList }) => {
   const [addUser] = useCreateUserMutation()
   const [imageUrl, setImageUrl] = useState(defaultPng)
+  const navigate = useNavigate()
   const {
     control,
     handleSubmit,
@@ -40,7 +42,10 @@ const CreateFormUser = ({ foodsList }) => {
         } else formData.set(key, data[key])
       }
     })
-    await addUser(formData).unwrap()
+
+    const user = await addUser(formData).unwrap()
+
+    navigate(`/user/view/${user.id}`, { replace: true })
   }
 
   const handleFileChange = (event) => {

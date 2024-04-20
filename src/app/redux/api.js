@@ -2,10 +2,18 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const userApi = createApi({
   reducerPath: 'userApi',
+  tagTypes: ['Users'],
   baseQuery: fetchBaseQuery({ baseUrl: 'http://tasks.tizh.ru/' }),
   endpoints: (build) => ({
     getUserList: build.query({
       query: () => 'v1/user/index',
+      providesTags: (result) =>
+        result
+          ? [
+              ...result.map(({ id }) => ({ type: 'Users', id })),
+              { type: 'Users', id: 'LIST' },
+            ]
+          : [{ type: 'Users', id: 'LIST' }],
     }),
 
     getUser: build.query({
@@ -31,6 +39,14 @@ export const userApi = createApi({
         body: formData,
       }),
     }),
+
+    deleteUser: build.mutation({
+      query: (id) => ({
+        url: `v1/user/delete?id=${id}`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: [{ type: 'Users', id: 'LIST' }],
+    }),
   }),
 })
 
@@ -40,4 +56,5 @@ export const {
   useGetFoodsListQuery,
   useCreateUserMutation,
   useUpdateUserMutation,
+  useDeleteUserMutation,
 } = userApi
