@@ -1,8 +1,15 @@
 import { Button } from '@mui/material'
 
-const UserButton = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
+const UserButton = ({
+  title,
+  bgColor,
+  bgColorHover,
+  bgBorderColor,
+  handleClick,
+}) => {
   return (
     <Button
+      onClick={handleClick}
       variant="contained"
       sx={{
         fontSize: '13px',

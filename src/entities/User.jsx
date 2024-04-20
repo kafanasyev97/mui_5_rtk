@@ -1,6 +1,6 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import png from '../shared/images/user-placeholder.png'
-import { useDeleteUserMutation } from '../app/redux'
+import { useDeleteUser } from '../features/useDeleteUser'
 
 const User = ({
   id,
@@ -11,8 +11,7 @@ const User = ({
   photo_id,
   foods,
 }) => {
-  const navigate = useNavigate()
-  const [deleteUser] = useDeleteUserMutation()
+  const { handleDeleteUser } = useDeleteUser(id)
 
   const photoUrl = photo_id
     ? `https://tasks.tizh.ru/file/get?id=${photo_id}`
@@ -26,27 +25,6 @@ const User = ({
     })
     return list.join(', ')
   }
-
-  const handleDeleteUser = () => {
-    const isConfirmed = window.confirm(
-      'Вы уверены, что хотите удалить этот элемент?'
-    )
-    if (isConfirmed) {
-      deleteUser(id)
-      navigate('/user/index')
-    }
-  }
-
-  // function EntityItem({ id, name, onDelete }) {
-  //   const handleDelete = () => {
-  //     const isConfirmed = window.confirm(
-  //       `Вы уверены, что хотите удалить ${name}?`
-  //     )
-  //     if (isConfirmed) {
-  //       onDelete(id)
-  //     }
-  //   }
-  // }
 
   return (
     <>

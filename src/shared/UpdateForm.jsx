@@ -5,7 +5,7 @@ import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { useState } from 'react'
-import { useUpdateUserMutation, userApi } from '../app/redux'
+import { useUpdateUserMutation } from '../app/redux'
 import UserUpdateInput from './UserUpdateInput'
 
 const schema = yup.object({
