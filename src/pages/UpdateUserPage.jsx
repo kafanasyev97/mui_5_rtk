@@ -5,30 +5,28 @@ import {
   useGetUserQuery,
 } from '../app/redux'
 import UpdateFormUser from '../shared/UpdateForm'
+import { useGetUser } from '../features/useGetUser'
 
 const UpdateUserPage = () => {
   const { id } = useParams()
 
-  const [updateUser] = useUpdateUserMutation(id)
+  const user = useGetUser(id)
 
-  const foods = useGetFoodsListQuery()
-  const { data = [], isLoading } = useGetUserQuery(id)
+  if (!user) return null
 
-  if (isLoading) return null
-
-  const foodsData = foods.data
-
-  const foodsList = []
-
-  for (const food in foodsData) {
-    foodsList.push({ id: food, label: foodsData[food] })
-  }
+  const { data, photoUrl, foodsList, defValueFoods } = user
+  console.log('444', data)
 
   return (
     <div>
       <div className="container">
         <div className="user-form">
-          <UpdateFormUser userData={data} foodsList={foodsList} />
+          <UpdateFormUser
+            defValueFoods={defValueFoods}
+            photoUrl={photoUrl}
+            userData={data}
+            foodsList={foodsList}
+          />
         </div>
       </div>
     </div>

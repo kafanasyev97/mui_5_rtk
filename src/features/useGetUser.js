@@ -22,7 +22,7 @@ const useGetUser = (id) => {
     data.favorite_food_ids.includes(el.id)
   )
 
-  return { isLoading, data, photoUrl, defValueFoods }
+  return { isLoading, data, photoUrl, foodsList, defValueFoods }
 }
 
 export { useGetUser }

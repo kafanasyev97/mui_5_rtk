@@ -4,19 +4,10 @@ import UserInput from './UserInput'
 import defaultPng from '../shared/images/user-placeholder.png'
 import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import { useState } from 'react'
 import { useCreateUserMutation } from '../app/redux'
 import { useNavigate } from 'react-router-dom'
-
-const schema = yup.object({
-  username: yup.string().required('Необходимо заполнить «Имя».'),
-  email: yup
-    .string()
-    .required('Необходимо заполнить «Email».')
-    .email('Значение «Email» не является правильным email адресом.'),
-  birthdate: yup.string().required('Необходимо заполнить «Дата рождения».'),
-})
+import { schema } from './schemaYup'
 
 const CreateFormUser = ({ foodsList }) => {
   const [addUser] = useCreateUserMutation()

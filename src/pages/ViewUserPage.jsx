@@ -1,12 +1,9 @@
-import { Link, useLocation, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import UserButton from '../shared/UserButton'
 import { useDeleteUser } from '../features/useDeleteUser'
 import { useGetUser } from '../features/useGetUser'
 
 const ViewUserPage = () => {
-  const location = useLocation()
-  console.log('aaaaaaaaaa', location)
-
   const params = useParams()
 
   const { handleDeleteUser } = useDeleteUser(params.id)

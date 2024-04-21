@@ -1,28 +1,14 @@
 import { useForm, Controller } from 'react-hook-form'
 import SelectInput from './SelectInput'
-import defaultPng from '../shared/images/user-placeholder.png'
 import ButtonSave from '../shared/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import { useState } from 'react'
 import { useUpdateUserMutation } from '../app/redux'
 import UserUpdateInput from './UserUpdateInput'
 import { useNavigate } from 'react-router-dom'
+import { schema } from './schemaYup'
 
-const schema = yup.object({
-  username: yup.string().required('Необходимо заполнить «Имя».'),
-  email: yup
-    .string()
-    .required('Необходимо заполнить «Email».')
-    .email('Значение «Email» не является правильным email адресом.'),
-  birthdate: yup.string().required('Необходимо заполнить «Дата рождения».'),
-})
-
-const UpdateFormUser = ({ foodsList, userData }) => {
-  const photoUrl = userData.photo_id
-    ? `https://tasks.tizh.ru/file/get?id=${userData.photo_id}`
-    : defaultPng
-
+const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
   const [updateUser] = useUpdateUserMutation()
   const [imageUrl, setImageUrl] = useState(photoUrl)
   const navigate = useNavigate()
@@ -64,10 +50,6 @@ const UpdateFormUser = ({ foodsList, userData }) => {
       reader.readAsDataURL(file)
     }
   }
-
-  const defValueFoods = foodsList.filter((el) =>
-    userData.favorite_food_ids.includes(el.id)
-  )
 
   return (
     <div>
