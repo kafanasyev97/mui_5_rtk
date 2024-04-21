@@ -52,7 +52,7 @@ const UpdateFormUser = ({ foodsList, userData }) => {
     console.log('0000', user)
 
     navigate(`/user/view/${user.id}`, { replace: true })
-    // window.location.reload()
+    navigate(0)
   }
 
   const handleFileChange = (event) => {
