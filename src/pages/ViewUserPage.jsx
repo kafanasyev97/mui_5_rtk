@@ -1,17 +1,24 @@
-import { Link, useParams } from 'react-router-dom'
+import { Link, useLocation, useParams } from 'react-router-dom'
 import UserButton from '../shared/UserButton'
 import { useDeleteUser } from '../features/useDeleteUser'
 import { useGetUser } from '../features/useGetUser'
 
 const ViewUserPage = () => {
+  const location = useLocation()
+  console.log('aaaaaaaaaa', location)
+
   const params = useParams()
+
   const { handleDeleteUser } = useDeleteUser(params.id)
   const user = useGetUser(params.id)
+
   if (!user) return null
 
   const { data, photoUrl, defValueFoods } = user
+  console.log('444', data)
 
   const userFoodsList = (foodsList) => {
+    if (foodsList.length === 0) return 'Не корректный ID еды'
     const foodsNameList = foodsList.map((item) => item.label)
     return foodsNameList.join(', ')
   }

@@ -7,6 +7,7 @@ import * as yup from 'yup'
 import { useState } from 'react'
 import { useUpdateUserMutation } from '../app/redux'
 import UserUpdateInput from './UserUpdateInput'
+import { useNavigate } from 'react-router-dom'
 
 const schema = yup.object({
   username: yup.string().required('Необходимо заполнить «Имя».'),
@@ -24,6 +25,7 @@ const UpdateFormUser = ({ foodsList, userData }) => {
 
   const [updateUser] = useUpdateUserMutation()
   const [imageUrl, setImageUrl] = useState(photoUrl)
+  const navigate = useNavigate()
 
   const {
     control,
@@ -46,7 +48,11 @@ const UpdateFormUser = ({ foodsList, userData }) => {
       }
     })
 
-    await updateUser({ id: userData.id, formData }).unwrap()
+    const user = await updateUser({ id: userData.id, formData }).unwrap()
+    console.log('0000', user)
+
+    navigate(`/user/view/${user.id}`, { replace: true })
+    // window.location.reload()
   }
 
   const handleFileChange = (event) => {

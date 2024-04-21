@@ -13,6 +13,7 @@ const UpdateUserPage = () => {
 
   const foods = useGetFoodsListQuery()
   const { data = [], isLoading } = useGetUserQuery(id)
+
   if (isLoading) return null
 
   const foodsData = foods.data
