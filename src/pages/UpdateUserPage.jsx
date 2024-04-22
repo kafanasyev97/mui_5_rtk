@@ -1,9 +1,4 @@
 import { useParams } from 'react-router-dom'
-import {
-  useGetFoodsListQuery,
-  useUpdateUserMutation,
-  useGetUserQuery,
-} from '../app/redux'
 import UpdateFormUser from '../shared/UpdateForm'
 import { useGetUser } from '../features/useGetUser'
 
@@ -15,7 +10,6 @@ const UpdateUserPage = () => {
   if (!user) return null
 
   const { data, photoUrl, foodsList, defValueFoods } = user
-  console.log('444', data)
 
   return (
     <div>

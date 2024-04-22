@@ -12,7 +12,6 @@ const ViewUserPage = () => {
   if (!user) return null
 
   const { data, photoUrl, defValueFoods } = user
-  console.log('444', data)
 
   const userFoodsList = (foodsList) => {
     if (foodsList.length === 0) return 'Не корректный ID еды'
@@ -42,15 +41,13 @@ const ViewUserPage = () => {
             bgBorderColor="#0062cc"
           />
         </Link>
-        <Link to="#">
-          <UserButton
-            handleClick={handleDeleteUser}
-            title="Удалить"
-            bgColor="#dc3545"
-            bgColorHover="#c82333"
-            bgBorderColor="#bd2130"
-          />
-        </Link>
+        <UserButton
+          handleClick={handleDeleteUser}
+          title="Удалить"
+          bgColor="#dc3545"
+          bgColorHover="#c82333"
+          bgBorderColor="#bd2130"
+        />
       </div>
       <table className="table-view">
         <tr>
