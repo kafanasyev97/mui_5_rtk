@@ -23,6 +23,8 @@ const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
   })
 
   const onSubmit = async (data) => {
+    console.log('data', data)
+
     const formData = new FormData()
     Object.keys(data).forEach((key) => {
       if (data[key]) {
@@ -33,11 +35,9 @@ const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
         } else formData.set(key, data[key])
       }
     })
-    if (!formData.has('favorite_food_ids')) {
-      console.log('dddddddd')
 
+    if (data['favorite_food_ids'].length === 0)
       formData.set('favorite_food_ids', '')
-    }
 
     const user = await updateUser({ id: userData.id, formData }).unwrap()
 

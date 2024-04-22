@@ -19,7 +19,7 @@ const User = ({
 
   const foodsList = () => {
     if (!foods) return
-    if (favorite_food_ids.length === 1 && favorite_food_ids[0] === null) return
+    if (favorite_food_ids.length === 1 && favorite_food_ids[0] === '') return
     const list = favorite_food_ids.map((food) => {
       if (!food || food.includes(',')) return 'Не корректный ID еды'
       return foods[food]
