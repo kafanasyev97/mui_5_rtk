@@ -8,6 +8,8 @@ import InputStartPage from '../shared/InputStartPage'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
+  console.log('cc', data)
+
   const foods = useGetFoodsListQuery()
 
   return (
