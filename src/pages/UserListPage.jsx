@@ -5,6 +5,7 @@ import UserInput from '../shared/UserInput'
 import DateField from '../shared/DateField'
 import User from '../entities/User'
 import InputStartPage from '../shared/InputStartPage'
+import TestUserInput from '../shared/TestUserInput'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()
@@ -47,7 +48,7 @@ const UserListPage = () => {
           <tr>
             <th></th>
             <th>
-              <UserInput />
+              <TestUserInput />
             </th>
             <th></th>
             <th style={{ width: '200px' }}>
