@@ -23,8 +23,6 @@ const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
   })
 
   const onSubmit = async (data) => {
-    console.log('data', data)
-
     const formData = new FormData()
     Object.keys(data).forEach((key) => {
       if (data[key]) {

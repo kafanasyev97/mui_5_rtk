@@ -33,6 +33,7 @@ const CreateFormUser = ({ foodsList }) => {
         } else formData.set(key, data[key])
       }
     })
+
     if (!data['favorite_food_ids']) formData.set('favorite_food_ids', '')
 
     const user = await addUser(formData).unwrap()
