@@ -33,9 +33,10 @@ const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
         } else formData.set(key, data[key])
       }
     })
+    if (!formData.has('favorite_food_ids'))
+      formData.set('favorite_food_ids', null)
 
     const user = await updateUser({ id: userData.id, formData }).unwrap()
-    console.log('0000', user)
 
     navigate(`/user/view/${user.id}`, { replace: true })
     navigate(0)
