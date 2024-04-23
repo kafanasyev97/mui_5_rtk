@@ -8,9 +8,13 @@ import { useState } from 'react'
 import { useCreateUserMutation } from '../app/redux'
 import { useNavigate } from 'react-router-dom'
 import { schema } from './schemaYup'
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { TextField } from '@mui/material'
 
 const CreateFormUser = ({ foodsList }) => {
   const [addUser] = useCreateUserMutation()
+
   const [imageUrl, setImageUrl] = useState(defaultPng)
   const navigate = useNavigate()
   const {
@@ -50,6 +54,8 @@ const CreateFormUser = ({ foodsList }) => {
       reader.readAsDataURL(file)
     }
   }
+
+  // const [open, setOpen] = useState(false)
 
   return (
     <div>
@@ -131,3 +137,18 @@ const CreateFormUser = ({ foodsList }) => {
 }
 
 export default CreateFormUser
+
+{
+  /* <LocalizationProvider dateAdapter={AdapterDayjs}>
+        <DatePicker
+          field={TextField}
+          open={open}
+          slots={{ textField: UserInput }}
+          slotProps={{
+            textField: { onClick: () => setOpen(true) },
+            openPickerIcon: { sx: { display: 'none' } },
+          }}
+          disablePast={true}
+        />
+      </LocalizationProvider> */
+}
