@@ -34,7 +34,9 @@ const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
       }
     })
 
-    if (data['favorite_food_ids'].length === 0)
+    console.log('bbbb', data, data['favorite_food_ids'])
+
+    if (!data['favorite_food_ids'] || data['favorite_food_ids'].length === 0)
       formData.set('favorite_food_ids', '')
 
     const user = await updateUser({ id: userData.id, formData }).unwrap()
