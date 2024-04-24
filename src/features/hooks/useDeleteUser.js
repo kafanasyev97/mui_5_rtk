@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom'
-import { useDeleteUserMutation } from '../app/redux'
+import { useDeleteUserMutation } from '../../app/redux'
 
 const useDeleteUser = (id) => {
   const [deleteUser] = useDeleteUserMutation()

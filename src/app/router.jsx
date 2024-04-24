@@ -3,7 +3,7 @@ import UserListPage from '../pages/UserListPage'
 import CreateUserPage from '../pages/CreateUserPage'
 import ViewUserPage from '../pages/ViewUserPage'
 import UpdateUserPage from '../pages/UpdateUserPage'
-import MainLayout from '../widgets/MainLayout'
+import MainLayout from '../pages/MainLayout/MainLayout'
 
 export const router = createBrowserRouter([
   {

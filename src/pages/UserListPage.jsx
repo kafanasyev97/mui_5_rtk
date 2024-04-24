@@ -1,11 +1,11 @@
 import { useGetFoodsListQuery, useGetUserListQuery } from '../app/redux'
 import { Link } from 'react-router-dom'
-import UserButton from '../shared/UserButton'
-import UserInput from '../shared/UserInput'
-import DateField from '../shared/DateField'
+import UserButton from '../shared/ui/UserButton'
+import UserInput from '../shared/ui/UserInput'
+import DateField from '../shared/ui/DateField'
 import User from '../entities/User'
-import InputStartPage from '../shared/InputStartPage'
-import TestUserInput from '../shared/TestUserInput'
+import InputStartPage from '../shared/ui/InputStartPage'
+import TestUserInput from '../shared/ui/TestUserInput'
 
 const UserListPage = () => {
   const { data = [] } = useGetUserListQuery()

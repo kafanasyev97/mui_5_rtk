@@ -1,5 +1,5 @@
 import { useGetFoodsListQuery } from '../app/redux'
-import CreateFormUser from '../shared/CreateForm'
+import CreateFormUser from '../widgets/FormCreate/CreateForm'
 
 const CreateUserPage = () => {
   const foods = useGetFoodsListQuery()

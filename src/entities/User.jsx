@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 import png from '../shared/images/user-placeholder.png'
-import { useDeleteUser } from '../features/useDeleteUser'
+import { useDeleteUser } from '../features/hooks/useDeleteUser'
 
 const User = ({
   id,

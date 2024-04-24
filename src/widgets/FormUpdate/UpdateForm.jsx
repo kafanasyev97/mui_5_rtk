@@ -1,22 +1,18 @@
 import { useForm, Controller } from 'react-hook-form'
-import SelectInput from './SelectInput'
-import UserInput from './UserInput'
-import defaultPng from '../shared/images/user-placeholder.png'
-import ButtonSave from '../shared/ButtonSave'
+import SelectInput from '../../shared/ui/SelectInput'
+import ButtonSave from '../../shared/ui/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
-import { useCreateUserMutation } from '../app/redux'
+import { useUpdateUserMutation } from '../../app/redux'
+import UserUpdateInput from '../../shared/ui/UserUpdateInput'
 import { useNavigate } from 'react-router-dom'
-import { schema } from './schemaYup'
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { TextField } from '@mui/material'
+import { schema } from '../../features/FormValidation/schemaYup'
 
-const CreateFormUser = ({ foodsList }) => {
-  const [addUser] = useCreateUserMutation()
-
-  const [imageUrl, setImageUrl] = useState(defaultPng)
+const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
+  const [updateUser] = useUpdateUserMutation()
+  const [imageUrl, setImageUrl] = useState(photoUrl)
   const navigate = useNavigate()
+
   const {
     control,
     handleSubmit,
@@ -38,11 +34,15 @@ const CreateFormUser = ({ foodsList }) => {
       }
     })
 
-    if (!data['favorite_food_ids']) formData.set('favorite_food_ids', '')
+    console.log('bbbb', data, data['favorite_food_ids'])
 
-    const user = await addUser(formData).unwrap()
+    if (!data['favorite_food_ids'] || data['favorite_food_ids'].length === 0)
+      formData.set('favorite_food_ids', '')
+
+    const user = await updateUser({ id: userData.id, formData }).unwrap()
 
     navigate(`/user/view/${user.id}`, { replace: true })
+    navigate(0)
   }
 
   const handleFileChange = (event) => {
@@ -54,8 +54,6 @@ const CreateFormUser = ({ foodsList }) => {
       reader.readAsDataURL(file)
     }
   }
-
-  // const [open, setOpen] = useState(false)
 
   return (
     <div>
@@ -87,8 +85,15 @@ const CreateFormUser = ({ foodsList }) => {
           <Controller
             width="300"
             name="username"
+            defaultValue={userData.username}
             control={control}
-            render={({ field }) => <UserInput {...field} id="username" />}
+            render={({ field }) => (
+              <UserUpdateInput
+                {...field}
+                id="username"
+                defaultValue={userData.username}
+              />
+            )}
           />
           <p className="error-text">{errors.username?.message}</p>
         </div>
@@ -97,8 +102,15 @@ const CreateFormUser = ({ foodsList }) => {
           <label htmlFor="email">Email</label>
           <Controller
             name="email"
+            defaultValue={userData.email}
             control={control}
-            render={({ field }) => <UserInput {...field} id="email" />}
+            render={({ field }) => (
+              <UserUpdateInput
+                {...field}
+                id="email"
+                defaultValue={userData.email}
+              />
+            )}
           />
           <p className="error-text">{errors.email?.message}</p>
         </div>
@@ -107,8 +119,15 @@ const CreateFormUser = ({ foodsList }) => {
           <label htmlFor="birthdate">Дата рождения</label>
           <Controller
             name="birthdate"
+            defaultValue={userData.birthdate}
             control={control}
-            render={({ field }) => <UserInput {...field} id="birthdate" />}
+            render={({ field }) => (
+              <UserUpdateInput
+                {...field}
+                id="birthdate"
+                defaultValue={userData.birthdate}
+              />
+            )}
           />
           <p className="error-text">{errors.birthdate?.message}</p>
         </div>
@@ -120,7 +139,12 @@ const CreateFormUser = ({ foodsList }) => {
             name="favorite_food_ids"
             control={control}
             render={({ field }) => (
-              <SelectInput {...field} foodsList={foodsList} width="100%" />
+              <SelectInput
+                {...field}
+                foodsList={foodsList}
+                width="100%"
+                defaultValue={defValueFoods}
+              />
             )}
           />
         </div>
@@ -136,19 +160,4 @@ const CreateFormUser = ({ foodsList }) => {
   )
 }
 
-export default CreateFormUser
-
-{
-  /* <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          field={TextField}
-          open={open}
-          slots={{ textField: UserInput }}
-          slotProps={{
-            textField: { onClick: () => setOpen(true) },
-            openPickerIcon: { sx: { display: 'none' } },
-          }}
-          disablePast={true}
-        />
-      </LocalizationProvider> */
-}
+export default UpdateFormUser

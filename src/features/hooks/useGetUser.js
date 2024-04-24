@@ -1,5 +1,5 @@
-import { useGetFoodsListQuery, useGetUserQuery } from '../app/redux'
-import defaultPng from '../shared/images/user-placeholder.png'
+import { useGetFoodsListQuery, useGetUserQuery } from '../../app/redux'
+import defaultPng from '../../shared/images/user-placeholder.png'
 
 const useGetUser = (id) => {
   const foods = useGetFoodsListQuery()
