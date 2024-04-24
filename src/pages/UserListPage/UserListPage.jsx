@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import UserButton from '../../shared/ui/UserButton'
 import UserInput from '../../shared/ui/UserInput'
 import DateField from '../../shared/ui/DateField'
-import User from '../../entities/User'
+import User from '../../entities/User/ui/User'
 import InputStartPage from '../../shared/ui/InputStartPage'
 import TestUserInput from '../../shared/ui/TestUserInput'
 

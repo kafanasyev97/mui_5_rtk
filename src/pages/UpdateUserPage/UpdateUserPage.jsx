@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom'
 import UpdateFormUser from '../../widgets/FormUpdate/UpdateForm'
-import { useGetUser } from '../../features/hooks/useGetUser'
+import { useGetUser } from '../../shared/hooks/useGetUser'
 
 const UpdateUserPage = () => {
   const { id } = useParams()
