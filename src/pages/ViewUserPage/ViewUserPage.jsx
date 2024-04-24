@@ -1,7 +1,7 @@
 import { Link, useParams } from 'react-router-dom'
-import UserButton from '../shared/ui/UserButton'
-import { useDeleteUser } from '../features/hooks/useDeleteUser'
-import { useGetUser } from '../features/hooks/useGetUser'
+import UserButton from '../../shared/ui/UserButton'
+import { useDeleteUser } from '../../features/hooks/useDeleteUser'
+import { useGetUser } from '../../features/hooks/useGetUser'
 
 const ViewUserPage = () => {
   const params = useParams()
