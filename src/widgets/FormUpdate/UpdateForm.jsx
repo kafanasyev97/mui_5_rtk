@@ -1,6 +1,5 @@
 import { useForm, Controller } from 'react-hook-form'
 import SelectInput from '../../shared/ui/SelectInput'
-import ButtonSave from '../../shared/ui/ButtonSave'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
 import { useUpdateUserMutation } from '../../app/redux'
