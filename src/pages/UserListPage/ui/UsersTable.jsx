@@ -4,9 +4,11 @@ import UserInput from '../../../shared/ui/UserInput'
 import InputStartPage from '../../../shared/ui/InputStartPage'
 import User from '../../../entities/User/ui/User'
 import { useGetFoodsListQuery, useGetUserListQuery } from '../../../app/redux'
+import { users, foodList } from '../../../defaultValues'
 
 const UsersTable = () => {
-  const { data = [] } = useGetUserListQuery()
+  // const { data = [] } = useGetUserListQuery()
+  const data = users
 
   const foods = useGetFoodsListQuery()
 
@@ -38,7 +40,8 @@ const UsersTable = () => {
             <DateField />
           </th>
           <th>
-            <InputStartPage foods={foods.data} />
+            {/* <InputStartPage foods={foods.data} />  */} {/* API */}
+            <InputStartPage foods={foodList} />
           </th>
         </tr>
       </thead>
@@ -54,7 +57,8 @@ const UsersTable = () => {
                 birthdate={user.birthdate}
                 favorite_food_ids={user.favorite_food_ids}
                 photo_id={user.photo_id}
-                foods={foods.data}
+                // foods={foods.data}  {/* API */}
+                foods={foodList}
               />
             </tr>
           )

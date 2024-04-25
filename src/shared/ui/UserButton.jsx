@@ -9,8 +9,6 @@ const UserButton = ({
   type = 'button',
   handleClick = () => {},
 }) => {
-  console.log('ss', width)
-
   return (
     <Button
       type={type}
