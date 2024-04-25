@@ -5,14 +5,20 @@ const UserButton = ({
   bgColor,
   bgColorHover,
   bgBorderColor,
-  handleClick,
+  width = '',
+  type = 'button',
+  handleClick = () => {},
 }) => {
+  console.log('ss', width)
+
   return (
     <Button
+      type={type}
       onClick={handleClick}
       variant="contained"
       sx={{
         fontSize: '13px',
+        width: width,
         border: '1px solid transparent',
         backgroundColor: bgColor,
         padding: '0.375rem 0.75rem',

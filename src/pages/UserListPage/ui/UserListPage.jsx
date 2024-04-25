@@ -18,6 +18,7 @@ const UserListPage = () => {
       <p>
         <Link to="/user/create">
           <UserButton
+            width="212.2px"
             title="Добавить пользователя"
             bgColor="#28a745"
             bgColorHover="#218838"

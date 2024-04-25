@@ -29,7 +29,6 @@ const ViewUserPage = () => {
       <div>
         <Link to={`/user/update/${id}`}>
           <UserButton
-            handleClick={() => console.log('2222')}
             title="Изменить"
             bgColor="#007bff"
             bgColorHover="#0069d9"

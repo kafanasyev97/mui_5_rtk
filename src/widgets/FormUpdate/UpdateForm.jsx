@@ -7,6 +7,7 @@ import { useUpdateUserMutation } from '../../app/redux'
 import UserUpdateInput from '../../shared/ui/UserUpdateInput'
 import { useNavigate } from 'react-router-dom'
 import { schema } from '../../features/FormValidation/schemaYup'
+import UserButton from '../../shared/ui/UserButton'
 
 const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
   const [updateUser] = useUpdateUserMutation()
@@ -149,7 +150,9 @@ const UpdateFormUser = ({ foodsList, userData, photoUrl, defValueFoods }) => {
           />
         </div>
 
-        <ButtonSave
+        <UserButton
+          type="submit"
+          width="105px"
           title="Сохранить"
           bgColor="#28a745"
           bgColorHover="#218838"

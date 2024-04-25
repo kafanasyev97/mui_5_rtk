@@ -1,13 +1,14 @@
 import { Button } from '@mui/material'
 
-const ButtonSave = ({ title, bgColor, bgColorHover, bgBorderColor }) => {
+const ButtonSave = ({ title, bgColor, bgColorHover, bgBorderColor, width }) => {
   return (
     <Button
       type="submit"
       variant="contained"
       sx={{
         fontSize: '13px',
-        width: '105px',
+        width: { width },
+        // width: '105px',
         border: '1px solid transparent',
         backgroundColor: bgColor,
         padding: '0.375rem 0.75rem',

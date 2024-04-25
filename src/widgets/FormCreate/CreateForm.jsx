@@ -11,6 +11,7 @@ import { schema } from '../../features/FormValidation/schemaYup'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { TextField } from '@mui/material'
+import UserButton from '../../shared/ui/UserButton'
 
 const CreateFormUser = ({ foodsList }) => {
   const [addUser] = useCreateUserMutation()
@@ -125,7 +126,9 @@ const CreateFormUser = ({ foodsList }) => {
           />
         </div>
 
-        <ButtonSave
+        <UserButton
+          type="submit"
+          width="105px"
           title="Сохранить"
           bgColor="#28a745"
           bgColorHover="#218838"
