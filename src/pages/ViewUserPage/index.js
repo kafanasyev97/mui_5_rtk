@@ -1,1 +1,1 @@
-export { default } from './ViewUserPage'
+export { default } from './ui/ViewUserPage'
