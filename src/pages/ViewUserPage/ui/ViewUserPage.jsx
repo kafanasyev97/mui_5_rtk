@@ -15,6 +15,7 @@ const ViewUserPage = () => {
 
   // const { data, photoUrl, defValueFoods } = user  {/* API */}
   const data = users.find((el) => el.id === id)
+  if (!data) return null
 
   const photoUrl = ''
   const defValueFoods = foodListForSelectInput.filter((el) =>

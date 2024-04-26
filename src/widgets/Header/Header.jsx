@@ -1,15 +1,16 @@
 import { Link } from 'react-router-dom'
+import './Header.scss'
 
 const Header = () => {
   return (
-    <div className="head">
+    <div className="header-wrapper">
       <header className="header">
         <div className="container">
           <nav className="header__container">
-            <a href="/user/index" className="header__link">
+            <a href="/user/index" className="header__site-name-link">
               My Application
             </a>
-            <div className="header__block">
+            <div className="header__info-links">
               <ul className="list">
                 <li>
                   <Link className="link-ul" to="/user/index">
@@ -26,7 +27,7 @@ const Header = () => {
           </nav>
         </div>
       </header>
-      <div className="header__line"></div>
+      <div className="header-mb"></div>
     </div>
   )
 }
