@@ -4,19 +4,20 @@ import UserInput from '../../shared/ui/UserInput'
 import defaultPng from '../../shared/images/user-placeholder.png'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
-import { useCreateUserMutation } from '../../app/redux'
-import { useNavigate } from 'react-router-dom'
 import { schema } from '../../features/FormValidation/schemaYup'
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { TextField } from '@mui/material'
 import UserButton from '../../shared/ui/UserButton'
 
-const CreateFormUser = ({ foodsList }) => {
-  const [addUser] = useCreateUserMutation()
-
-  const [imageUrl, setImageUrl] = useState(defaultPng)
-  const navigate = useNavigate()
+const UserForm = ({
+  foodsList,
+  onSubmit,
+  userData = {},
+  photoUrl = '',
+  defValueFoods = [],
+}) => {
+  const [imageUrl, setImageUrl] = useState(photoUrl || defaultPng)
   const {
     control,
     handleSubmit,
@@ -25,25 +26,6 @@ const CreateFormUser = ({ foodsList }) => {
     resolver: yupResolver(schema),
     mode: 'onBlur',
   })
-
-  const onSubmit = async (data) => {
-    const formData = new FormData()
-    Object.keys(data).forEach((key) => {
-      if (data[key]) {
-        if (Array.isArray(data[key])) {
-          data[key].forEach((value, index) => {
-            formData.append(`${key}[${index}]`, value)
-          })
-        } else formData.set(key, data[key])
-      }
-    })
-
-    if (!data['favorite_food_ids']) formData.set('favorite_food_ids', '')
-
-    const user = await addUser(formData).unwrap()
-
-    navigate(`/user/view/${user.id}`, { replace: true })
-  }
 
   const handleFileChange = (event) => {
     const file = event.target.files[0]
@@ -87,6 +69,7 @@ const CreateFormUser = ({ foodsList }) => {
           <Controller
             width="300"
             name="username"
+            defaultValue={userData.username || ''}
             control={control}
             render={({ field }) => <UserInput {...field} id="username" />}
           />
@@ -97,6 +80,7 @@ const CreateFormUser = ({ foodsList }) => {
           <label htmlFor="email">Email</label>
           <Controller
             name="email"
+            defaultValue={userData.email || ''}
             control={control}
             render={({ field }) => <UserInput {...field} id="email" />}
           />
@@ -107,6 +91,7 @@ const CreateFormUser = ({ foodsList }) => {
           <label htmlFor="birthdate">Дата рождения</label>
           <Controller
             name="birthdate"
+            defaultValue={userData.birthdate || ''}
             control={control}
             render={({ field }) => <UserInput {...field} id="birthdate" />}
           />
@@ -120,7 +105,12 @@ const CreateFormUser = ({ foodsList }) => {
             name="favorite_food_ids"
             control={control}
             render={({ field }) => (
-              <SelectInput {...field} foodsList={foodsList} width="100%" />
+              <SelectInput
+                {...field}
+                foodsList={foodsList}
+                width="100%"
+                defaultValue={defValueFoods}
+              />
             )}
           />
         </div>
@@ -138,7 +128,7 @@ const CreateFormUser = ({ foodsList }) => {
   )
 }
 
-export default CreateFormUser
+export default UserForm
 
 {
   /* <LocalizationProvider dateAdapter={AdapterDayjs}>

@@ -5,7 +5,6 @@ const UserUpdateInput = (field) => {
     <TextField
       {...field}
       id={field.id}
-      defaultValue={field.defaultValue}
       onChange={(e) => {
         console.log('dddd', field)
         console.log('cccc', e)
