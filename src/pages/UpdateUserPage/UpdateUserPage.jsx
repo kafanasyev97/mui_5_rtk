@@ -43,19 +43,15 @@ const UpdateUserPage = () => {
   }
 
   return (
-    <div>
-      <div className="container">
-        <div className="user-form">
-          <UserForm
-            onSubmit={onSubmit}
-            defValueFoods={defValueFoods}
-            photoUrl={photoUrl}
-            userData={data}
-            // foodsList={foodsList}  {/* API */}
-            foodsList={foodListForSelectInput}
-          />
-        </div>
-      </div>
+    <div className="container">
+      <UserForm
+        onSubmit={onSubmit}
+        defValueFoods={defValueFoods}
+        photoUrl={photoUrl}
+        userData={data}
+        // foodsList={foodsList}  {/* API */}
+        foodsList={foodListForSelectInput}
+      />
     </div>
   )
 }

@@ -78,27 +78,6 @@ p {
   height: 150px;
 }
 
-.nav-ol {
-  display: flex;
-  gap: 13px;
-  background-color: #e9ecef;
-  border-radius: 0.25rem;
-  list-style: none;
-  list-style-type: none;
-  padding: 0.75rem 1rem;
-
-  a {
-    color: black;
-  }
-}
-
-.lol::before {
-  float: left;
-  padding-right: 0.5rem;
-  color: #6c757d;
-  content: '/';
-}
-
 .table-view {
   width: 50%;
   border-collapse: collapse;
@@ -108,31 +87,4 @@ p {
   border: 1px solid black;
   padding: 8px;
   text-align: left;
-}
-
-.create_form {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.img-input {
-  display: flex;
-  justify-content: center;
-}
-
-.input-block {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.formm {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-.error-text {
-  color: red;
 }

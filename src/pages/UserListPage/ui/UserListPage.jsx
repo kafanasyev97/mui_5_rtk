@@ -1,20 +1,12 @@
 import { Link } from 'react-router-dom'
 import UserButton from '../../../shared/ui/UserButton'
 import UsersTable from './UsersTable'
+import NavigationHistory from '../../../widgets/NavigationHistory/NavigationHistory'
 
 const UserListPage = () => {
   return (
     <div className="container">
-      <nav className="nav-block">
-        <ol className="nav-ol">
-          <li>
-            <a href="#">Главная</a>
-          </li>
-          <li className="lol">
-            <a href="#">Пользователи</a>
-          </li>
-        </ol>
-      </nav>
+      <NavigationHistory />
       <p>
         <Link to="/user/create">
           <UserButton

@@ -7,10 +7,10 @@ import { useGetFoodsListQuery, useGetUserListQuery } from '../../../app/redux'
 import { users, foodList } from '../../../defaultValues'
 
 const UsersTable = () => {
-  // const { data = [] } = useGetUserListQuery()
+  // const { data = [] } = useGetUserListQuery()  API
   const data = users
 
-  const foods = useGetFoodsListQuery()
+  // const foods = useGetFoodsListQuery() API
 
   return (
     <table className="table">

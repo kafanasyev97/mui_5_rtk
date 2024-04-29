@@ -4,6 +4,7 @@ import { useDeleteUser } from '../../../shared/hooks/useDeleteUser'
 import { useGetUser } from '../../../shared/hooks/useGetUser'
 import UserInfoTable from './UserInfoTable'
 import { users, foodListForSelectInput } from '../../../defaultValues'
+import NavigationHistory from '../../../widgets/NavigationHistory/NavigationHistory'
 
 const ViewUserPage = () => {
   const { id } = useParams()
@@ -24,16 +25,7 @@ const ViewUserPage = () => {
 
   return (
     <div className="container">
-      <nav className="nav-block">
-        <ol className="nav-ol">
-          <li>
-            <a href="#">Главная</a>
-          </li>
-          <li className="lol">
-            <a href="#">Пользователи</a>
-          </li>
-        </ol>
-      </nav>
+      <NavigationHistory />
       <div>
         <Link to={`/user/update/${id}`}>
           <UserButton

@@ -38,13 +38,11 @@ const CreateUserPage = () => {
   return (
     <div>
       <div className="container">
-        <div className="user-form">
-          <UserForm
-            onSubmit={onSubmit}
-            //  foodsList={foodsList}  {/* API */}
-            foodsList={foodListForSelectInput}
-          />
-        </div>
+        <UserForm
+          onSubmit={onSubmit}
+          //  foodsList={foodsList}  {/* API */}
+          foodsList={foodListForSelectInput}
+        />
       </div>
     </div>
   )
