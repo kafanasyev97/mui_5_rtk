@@ -1,0 +1,12 @@
+.user-table {
+  margin-top: 50px;
+  width: 100%;
+  border-collapse: collapse;
+
+  &__th,
+  &__td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
+}

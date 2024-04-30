@@ -6,31 +6,31 @@ const UserInfoTable = ({ data, photoUrl, defValueFoods }) => {
   }
 
   return (
-    <table className="table-view">
+    <table className="user-table">
       <tr>
-        <th className="th-view">ID</th>
-        <td className="td-view">{data.id}</td>
+        <th className="user-table__th">ID</th>
+        <td className="user-table__td">{data.id}</td>
       </tr>
       <tr>
-        <th className="th-view">Имя</th>
-        <td className="td-view">{data.username}</td>
+        <th className="user-table__th">Имя</th>
+        <td className="user-table__td">{data.username}</td>
       </tr>
       <tr>
-        <th className="th-view">Email</th>
-        <td className="td-view">{data.email}</td>
+        <th className="user-table__th">Email</th>
+        <td className="user-table__td">{data.email}</td>
       </tr>
       <tr>
-        <th className="th-view">Дата рождения</th>
-        <td className="td-view">{data.birthdate}</td>
+        <th className="user-table__th">Дата рождения</th>
+        <td className="user-table__td">{data.birthdate}</td>
       </tr>
       <tr>
-        <th className="th-view">Любимая еда</th>
-        <td className="td-view">{userFoodsList(defValueFoods)}</td>
+        <th className="user-table__th">Любимая еда</th>
+        <td className="user-table__td">{userFoodsList(defValueFoods)}</td>
       </tr>
       <tr>
-        <th className="th-view">Фото</th>
-        <td className="td-view">
-          <img className="user-img" src={photoUrl} alt="" />
+        <th className="user-table__th">Фото</th>
+        <td className="user-table__td">
+          <img className="user-img" src={photoUrl} alt="user" />
         </td>
       </tr>
     </table>

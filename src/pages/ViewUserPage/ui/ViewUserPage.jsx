@@ -5,6 +5,7 @@ import { useGetUser } from '../../../shared/hooks/useGetUser'
 import UserInfoTable from './UserInfoTable'
 import { users, foodListForSelectInput } from '../../../defaultValues'
 import NavigationHistory from '../../../widgets/NavigationHistory/NavigationHistory'
+import './ViewUserPage.scss'
 
 const ViewUserPage = () => {
   const { id } = useParams()
