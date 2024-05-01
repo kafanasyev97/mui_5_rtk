@@ -27,7 +27,7 @@ const ViewUserPage = () => {
   return (
     <div className="container">
       <NavigationHistory />
-      <div>
+      <div className="user-buttons">
         <Link to={`/user/update/${id}`}>
           <UserButton
             width="100px"
