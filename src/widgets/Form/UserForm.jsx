@@ -100,7 +100,7 @@ const UserForm = ({
         <Controller
           name="birthdate"
           // value={dayjs(Date.now())}
-          defaultValue={userData.birthdate || dayjs(Date.now())}
+          defaultValue={userData.birthdate || dayjs('')}
           control={control}
           render={({ field }) => <CustomDatePicker {...field} id="birthdate" />}
         />

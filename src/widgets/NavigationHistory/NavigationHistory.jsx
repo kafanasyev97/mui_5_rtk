@@ -8,7 +8,7 @@ const NavigationHistory = () => {
           <a href="/user/index">Главная</a>
         </li>
         <li className="nav-history__slash">
-          <a href="#">Пользователи</a>
+          <a href="/user/index">Пользователи</a>
         </li>
       </ol>
     </nav>

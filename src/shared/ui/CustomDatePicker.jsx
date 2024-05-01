@@ -5,8 +5,6 @@ import { useState } from 'react'
 import 'dayjs/locale/ru'
 
 const CustomDatePicker = (field) => {
-  console.log('222', Date.now())
-
   const [open, setOpen] = useState(false)
 
   return (
@@ -24,11 +22,6 @@ const CustomDatePicker = (field) => {
             placeholder: '',
             onClick: () => {
               setOpen(true)
-            },
-          },
-          popper: {
-            onBlur: () => {
-              setOpen(false)
             },
           },
         }}
