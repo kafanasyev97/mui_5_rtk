@@ -5,6 +5,14 @@
   border: 1px solid #dddddd;
   border-collapse: collapse;
 
+  &__date-picker {
+    width: 180px;
+  }
+
+  &__input {
+    width: 200px;
+  }
+
   th {
     font-weight: bold;
     padding: 12px;
@@ -15,6 +23,7 @@
     border: 1px solid #dddddd;
     padding: 12px;
     height: 205px;
+    text-align: center;
   }
 
   tbody tr:nth-child(odd) {

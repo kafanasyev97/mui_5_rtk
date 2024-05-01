@@ -10,6 +10,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { TextField } from '@mui/material'
 import UserButton from '../../shared/ui/UserButton'
 import './UserForm.scss'
+import CustomDatePicker from '../../shared/ui/CustomDatePicker'
 
 const UserForm = ({
   foodsList,
@@ -113,6 +114,19 @@ const UserForm = ({
         />
       </div>
 
+      <CustomDatePicker />
+
+      <div className="form__input">
+        <label htmlFor="birthdate">Дата рождения</label>
+        <Controller
+          name="birthdate"
+          defaultValue={userData.birthdate || ''}
+          control={control}
+          render={({ field }) => <UserInput {...field} id="birthdate" />}
+        />
+        <p className="error-text">{errors.birthdate?.message}</p>
+      </div>
+
       <UserButton
         type="submit"
         width="105px"
@@ -140,4 +154,29 @@ export default UserForm
           disablePast={true}
         />
       </LocalizationProvider> */
+}
+
+{
+  /* <LocalizationProvider dateAdapter={AdapterDayjs}>
+<DatePicker
+  format="DD.MM.YYYY"
+  open={open}
+  onClose={() => setOpen(false)}
+  slots={{ textField: UserInput }}
+  slotProps={{
+    openPickerIcon: { sx: { display: 'none' } },
+    textField: {
+      placeholder: '',
+      onClick: () => {
+        setOpen(true)
+      },
+    },
+    popper: {
+      onBlur: () => {
+        setOpen(false)
+      },
+    },
+  }}
+/>
+</LocalizationProvider> */
 }

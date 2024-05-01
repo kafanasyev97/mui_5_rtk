@@ -1,10 +1,10 @@
-import DateField from '../../../shared/ui/DateField'
 import TestUserInput from '../../../shared/ui/TestUserInput'
 import UserInput from '../../../shared/ui/UserInput'
 import InputStartPage from '../../../shared/ui/InputStartPage'
 import User from '../../../entities/User/ui/User'
 import { useGetFoodsListQuery, useGetUserListQuery } from '../../../app/redux'
 import { users, foodList } from '../../../defaultValues'
+import CustomDatePicker from '../../../shared/ui/CustomDatePicker'
 
 const UsersTable = () => {
   // const { data = [] } = useGetUserListQuery()  API
@@ -30,14 +30,14 @@ const UsersTable = () => {
             <TestUserInput />
           </th>
           <th></th>
-          <th style={{ width: '200px' }}>
+          <th className="main-table__input">
             <UserInput />
           </th>
-          <th style={{ width: '200px' }}>
+          <th className="main-table__input">
             <UserInput />
           </th>
-          <th>
-            <DateField />
+          <th className="main-table__date-picker">
+            <CustomDatePicker />
           </th>
           <th>
             {/* <InputStartPage foods={foods.data} />  */} {/* API */}
