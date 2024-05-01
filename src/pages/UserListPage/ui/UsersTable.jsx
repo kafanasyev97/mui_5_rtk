@@ -13,7 +13,7 @@ const UsersTable = () => {
   // const foods = useGetFoodsListQuery() API
 
   return (
-    <table className="table">
+    <table className="main-table">
       <thead>
         <tr>
           <th>#</th>

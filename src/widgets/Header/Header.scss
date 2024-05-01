@@ -24,6 +24,17 @@
     padding-bottom: 0.3125rem;
     margin-right: 1rem;
   }
+
+  &__links-list {
+    display: flex;
+  }
+
+  &__link-ul {
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+  }
 }
 
 .header-mb {

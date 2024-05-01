@@ -1,0 +1,23 @@
+.main-table {
+  margin-top: 100px;
+  width: 100%;
+  margin-bottom: 20px;
+  border: 1px solid #dddddd;
+  border-collapse: collapse;
+
+  th {
+    font-weight: bold;
+    padding: 12px;
+    border: 1px solid #dddddd;
+  }
+
+  td {
+    border: 1px solid #dddddd;
+    padding: 12px;
+    height: 205px;
+  }
+
+  tbody tr:nth-child(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}

@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import UserButton from '../../../shared/ui/UserButton'
 import UsersTable from './UsersTable'
 import NavigationHistory from '../../../widgets/NavigationHistory/NavigationHistory'
+import './UserListPage.scss'
 
 const UserListPage = () => {
   return (

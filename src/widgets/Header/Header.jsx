@@ -11,14 +11,17 @@ const Header = () => {
               My Application
             </a>
             <div className="header__info-links">
-              <ul className="list">
+              <ul className="header__links-list">
                 <li>
-                  <Link className="link-ul" to="/user/index">
+                  <Link className="header__link-ul" to="/user/index">
                     Home
                   </Link>
                 </li>
                 <li>
-                  <a className="link-ul" href="https://tasks.tizh.ru/swagger">
+                  <a
+                    className="header__link-ul"
+                    href="https://tasks.tizh.ru/swagger"
+                  >
                     Swagger
                   </a>
                 </li>
