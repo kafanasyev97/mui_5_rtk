@@ -5,7 +5,7 @@ const NavigationHistory = () => {
     <nav className="history">
       <ol className="nav-history">
         <li>
-          <a href="#">Главная</a>
+          <a href="/user/index">Главная</a>
         </li>
         <li className="nav-history__slash">
           <a href="#">Пользователи</a>
