@@ -5,12 +5,10 @@ import defaultPng from '../../shared/images/user-placeholder.png'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useState } from 'react'
 import { schema } from '../../features/FormValidation/schemaYup'
-import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers'
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import { TextField } from '@mui/material'
 import UserButton from '../../shared/ui/UserButton'
 import './UserForm.scss'
 import CustomDatePicker from '../../shared/ui/CustomDatePicker'
+import dayjs from 'dayjs'
 
 const UserForm = ({
   foodsList,
@@ -86,13 +84,25 @@ const UserForm = ({
         <p className="error-text">{errors.email?.message}</p>
       </div>
 
-      <div className="form__input">
+      {/* <div className="form__input">
         <label htmlFor="birthdate">Дата рождения</label>
         <Controller
           name="birthdate"
           defaultValue={userData.birthdate || ''}
           control={control}
           render={({ field }) => <UserInput {...field} id="birthdate" />}
+        />
+        <p className="error-text">{errors.birthdate?.message}</p>
+      </div> */}
+
+      <div className="form__input">
+        <label htmlFor="birthdate">Дата рождения</label>
+        <Controller
+          name="birthdate"
+          // value={dayjs(Date.now())}
+          defaultValue={userData.birthdate || dayjs(Date.now())}
+          control={control}
+          render={({ field }) => <CustomDatePicker {...field} id="birthdate" />}
         />
         <p className="error-text">{errors.birthdate?.message}</p>
       </div>
@@ -114,19 +124,6 @@ const UserForm = ({
         />
       </div>
 
-      <CustomDatePicker />
-
-      <div className="form__input">
-        <label htmlFor="birthdate">Дата рождения</label>
-        <Controller
-          name="birthdate"
-          defaultValue={userData.birthdate || ''}
-          control={control}
-          render={({ field }) => <UserInput {...field} id="birthdate" />}
-        />
-        <p className="error-text">{errors.birthdate?.message}</p>
-      </div>
-
       <UserButton
         type="submit"
         width="105px"
@@ -140,43 +137,3 @@ const UserForm = ({
 }
 
 export default UserForm
-
-{
-  /* <LocalizationProvider dateAdapter={AdapterDayjs}>
-        <DatePicker
-          field={TextField}
-          open={open}
-          slots={{ textField: UserInput }}
-          slotProps={{
-            textField: { onClick: () => setOpen(true) },
-            openPickerIcon: { sx: { display: 'none' } },
-          }}
-          disablePast={true}
-        />
-      </LocalizationProvider> */
-}
-
-{
-  /* <LocalizationProvider dateAdapter={AdapterDayjs}>
-<DatePicker
-  format="DD.MM.YYYY"
-  open={open}
-  onClose={() => setOpen(false)}
-  slots={{ textField: UserInput }}
-  slotProps={{
-    openPickerIcon: { sx: { display: 'none' } },
-    textField: {
-      placeholder: '',
-      onClick: () => {
-        setOpen(true)
-      },
-    },
-    popper: {
-      onBlur: () => {
-        setOpen(false)
-      },
-    },
-  }}
-/>
-</LocalizationProvider> */
-}

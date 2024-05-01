@@ -5,16 +5,6 @@ const UserInput = (field) => {
     <TextField
       {...field}
       id={field.id}
-      // defaultValue={field.defaultValue}
-      // // value={field.defaultValue}
-      // onChange={(e) => {
-      //   console.log('dddd', field)
-      //   console.log('cccc', e)
-      //   console.log('qqqq', field.defaultValue)
-      //   console.log('eeee', e.target.value)
-
-      //   field.onChange(e.target.value)
-      // }}
       type="text"
       variant="outlined"
       sx={{
@@ -27,8 +17,6 @@ const UserInput = (field) => {
           transition:
             'border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out',
         },
-        // border: '1px solid #ced4da',
-        // padding: '0.375rem 0.75rem',
 
         '&:hover .MuiOutlinedInput-root .MuiOutlinedInput-notchedOutline': {
           borderColor: '#ced4da',
@@ -39,7 +27,6 @@ const UserInput = (field) => {
             boxShadow: '0 0 0 0.2rem rgba(0, 123, 255, 0.25)',
           },
         borderRadius: '0.25rem',
-        // height: 'calc(1.5em + 0.75rem + 2px)',
       }}
     />
   )
