@@ -1,8 +1,49 @@
-# React + Vite
+# Небольшой сайт, реализующий CRUD-операции при помощи RTK-Query.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Структура проекта
 
-Currently, two official plugins are available:
+Данный проект состоит из 4 страниц:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+1. Список всех пользователей;
+2. Просмотр информации конкретного пользователя;
+3. Создание пользователя;
+4. Редактирование пользователя.
+
+Для работы с формами используется react-hook-form.
+Для маршрутизации - react-router-dom v6.
+Инпуты (кнопки, поля для ввода текста/дат) реализованы с помощью MUI v5.
+Для валидации значений полей используется Yup.
+Для выполнения запросов на сервер используется RTK Query.
+Проект выполнен по FSD-архитектуре.
+Верстка по БЭМ.
+Описание методов API - http://tasks.tizh.ru/swagger
+
+## Основной стек технологий
+
+В проекте используются следующие технологии:
+
+- React 18.2;
+- Redux toolkit 2.2.3;
+- React-router-dom 6.22.3;
+- Material UI 5.15.15;
+- React-hook-form 7.51.2;
+- yup 1.4
+- Sass/Scss 1.74;
+
+Сборщиком выступает Vite.
+
+## Запуск проекта
+
+После клонирования репозитория нужно перейти в папку проекта и установить зависимости:
+
+```sh
+npm install
+```
+
+Чтобы запустить проект используется команда:
+
+```sh
+npm run dev
+```
+
+P.S. В последнее время сервер по неизвестным причинам недоступен, поэтому в проекте реализованы заглушки.
