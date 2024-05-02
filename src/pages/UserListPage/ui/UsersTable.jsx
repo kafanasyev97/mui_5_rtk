@@ -27,7 +27,7 @@ const UsersTable = () => {
         <tr>
           <th></th>
           <th>
-            <TestUserInput />
+            <UserInput />
           </th>
           <th></th>
           <th className="main-table__input">
