@@ -1,4 +1,3 @@
-import TestUserInput from '../../../shared/ui/TestUserInput'
 import UserInput from '../../../shared/ui/UserInput'
 import InputStartPage from '../../../shared/ui/InputStartPage'
 import User from '../../../entities/User/ui/User'
