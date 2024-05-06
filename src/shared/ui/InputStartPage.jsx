@@ -16,7 +16,6 @@ export default function InputStartPage({ foods }) {
         multiple
         options={foodsList}
         getOptionLabel={(option) => option.label}
-        onChange={() => console.log('6666')}
         filterSelectedOptions
         renderInput={(params) => <UserInput {...params} />}
       />

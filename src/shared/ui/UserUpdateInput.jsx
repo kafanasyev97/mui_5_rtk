@@ -6,10 +6,6 @@ const UserUpdateInput = (field) => {
       {...field}
       id={field.id}
       onChange={(e) => {
-        console.log('dddd', field)
-        console.log('cccc', e)
-        console.log('eeee', e.target.value)
-
         field.onChange(e.target.value)
       }}
       type="text"
